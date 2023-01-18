@@ -1,9 +1,23 @@
- hello from section file
- 
+<h2>{{ product.title }}</h2>
+
+<img src="{{ product.featured_image | img_url: '300px' }}" />
+
+<h4>⭐︎⭐︎⭐︎⭐︎⭐︎</h4>
+
  {% schema %}
   {
     "name": "Section name",
-    "settings": []
+    "settings": [{
+      "id":"tax-notice",
+      "type":"text",
+      "label":"tax notice"
+    },
+    {
+      "id":"show_reviews",
+      "type":"checkbox",
+      "label":"show reviews"
+    }
+    ]
   }
 {% endschema %}
 
