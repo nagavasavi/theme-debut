@@ -3,16 +3,12 @@
     "main": {
       "type": "main-test-product",
       "settings": {
-      }
-    },
-    "second": {
-      "type": "main-test-product",
-      "settings": {
+        "tax-notice": "taxable",
+        "show_reviews": true
       }
     }
   },
   "order": [
-    "main",
-    "second"
+    "main"
   ]
 }
