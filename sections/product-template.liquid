@@ -242,6 +242,113 @@
           {% endform %}
         </div>
 
+        <div class="product-detail">
+          {% for image in product.images %}
+            <img src="{{ image | image_url:master}}" />
+          {% endfor %}
+          <h1>{{ product.title }}</h1>
+          <div class="product-prices">
+            <!-- <div class="product-compare">
+              {{product.selected_or_first_available_variant.compare_at_price | money }}
+            </div> -->
+            <div class="product-price">
+              <p>{{ product.selected_or_first_available_variant.price | money }}</p>
+            </div>
+          </div>
+          <div class="product-description">
+            {{ product.description}}
+          </div>
+          {% form 'product', product %}
+          <input type="hidden" id="product-id" name="id" value="{{product.selected_or_first_available_variant}}">
+          {% if product.variants.size > 1 %}
+          <div class="product-option">
+            {% for option in product.options_with_values %}
+            <fieldset>
+              <legend>{{ option.name}}</legend>
+              {% for value in option.values %}
+              <div>
+                <input {% if option.selected_value==value %} checked {% endif %} type="radio" name="{{option.name}}"
+                  value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }} ">
+                <label for="{{ option.name | handlize }} - {{ value | handlize }}">
+                  {{ value }}
+                </label>
+              </div>
+              {% endfor %}
+            </fieldset>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="product-option">
+            <label for="quantity">Quantity</label>
+            <input id="quantity" name="quantity" value="1" class="product">
+          </div>
+          <form id="AddToCartForm" action="/cart/add" method="post">
+            <!-- Add to Cart button -->
+            <button type="submit" class="btn btn-primary" data-add-to-cart>
+              Add to Cart
+            </button>
+          </form>
+          {% endform %}
+        </div>
+        <script>
+          var product = {{ product | json }}
+        // Function to match variants and update product form and price
+        function matchVariantsAndUpdate() {
+          // Find selected options
+          var selectedOptions = [];
+          document.querySelectorAll('.product-option input[type="radio"]:checked').forEach(radio => {
+            selectedOptions.push(radio.value);
+          });
+          // Finding the matched variant
+          var matchedVariant = product.variants.find(variant => {
+            var pass = true;
+            for (var i = 0; i < selectedOptions.length; i++) {
+              if (selectedOptions.indexOf(variant.options[i]) == -1) {
+                pass = false;
+                break;
+              }
+            }
+            return pass;
+          });
+          // Change Product form variant id
+          document.querySelector('#product-id').value = matchedVariant.id;
+          // Change price
+          document.querySelector('.product-price').textContent = formatMoney(matchedVariant.price, "{{ shop.money_format}}");
+        }
+        // Event listener when the page is loaded using DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+          matchVariantsAndUpdate();
+          // Add event listeners to the radio inputs for future changes
+          document.querySelectorAll('.product-option input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', matchVariantsAndUpdate);
+          });
+        });
+          //Add to cart functionality
+          document.addEventListener('DOMContentLoaded', function() {
+          document.querySelector('[data-add-to-cart]').addEventListener('click', function(e) {
+          e.preventDefault();
+          var form = document.getElementById('AddToCartForm');
+          var formData = new FormData(form);
+          fetch('/cart/add.js', {
+            method: 'POST',
+            body: formData
+            })
+              .then(function(response) {
+                return response.json();
+              })
+              // .then(function(data) {
+              //   // Handle the response data as needed
+              //   console.log(data);
+              // })
+              // .catch(function(error) {
+              //   console.error('Error:', error);
+              // });
+            });
+          });
+        </script>
+        
+
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
         {%- endcomment -%}
