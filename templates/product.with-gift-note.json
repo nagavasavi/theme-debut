@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-test-product",
+      "settings": {
+        "tax-notice": "taxable",
+        "show_reviews": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
