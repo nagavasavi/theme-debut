@@ -5,7 +5,8 @@
       "settings": {
         "tax-notice": "taxable",
         "show_reviews": true,
-        "number-prod": 10
+        "number-prod": 10,
+        "show-color": true
       }
     }
   },
