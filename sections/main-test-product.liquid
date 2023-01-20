@@ -10,7 +10,7 @@
 
 <h3>{{ section.settings.number-prod }}</h3>
 
-<h3>{{ section.settings.show-color }}</h3>
+<h3>{{ section.settings.logo_alignment }}</h3>
 
  {% schema %}
   {
@@ -34,7 +34,23 @@
       "id":"show-color",
       "type":"checkbox",
       "label":"color selection"
-    }
+    },
+    {
+      "type": "radio",
+      "id": "logo_aligment",
+      "label": "Logo alignment",
+      "options": [
+       {
+         "value": "left",
+         "label": "Left"
+       },
+       {
+         "value": "centered",
+         "label": "Centered"
+       }
+       ],
+         "default": "left"
+       }
     ]
   }
 {% endschema %}
