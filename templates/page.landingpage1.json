@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "icons-with-text",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
