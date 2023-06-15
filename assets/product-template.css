@@ -1,0 +1,13 @@
+.feat_heading{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.social-sharing{
+    display: inline;
+}
+
+.meta-feat-line{
+    border-bottom: 1px solid grey;
+    padding: 10px 0 ;
+}

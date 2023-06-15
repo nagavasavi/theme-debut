@@ -1,3 +1,5 @@
+{{ 'product-template.css' | asset_url | stylesheet_tag }}
+
 <div class="product-template__container page-width"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
@@ -239,6 +241,37 @@
                 {% endif %}
               </div>
             </div>
+
+
+            <div class="meta-features">
+              <div class="features-wrap">
+                  <div class="features meta-feat-line">
+                    <span class="feat_heading">Features: </span><br>
+                    {{ product.metafields.custom.product_features.value.show_tabs}}
+                    {% for property in product.metafields.custom.product_features.value.prod_technical_speicification %}
+                     {{property.title}}
+                     {{property.url}}
+                     {{property.power_consumption}}
+                     {{property.air_flow}}
+                     {{property.airflow_efficiency}}
+                     {{property.RPM}}
+                    {%- endfor %}
+                  </div>
+
+                  <div class="warranty meta-feat-line">
+                    <span class="feat_heading">Warranty: </span><br>{{ product.metafields.custom.warranty}}
+                  </div>
+                  
+                  <div class="style meta-feat-line">
+                    <span class="feat_heading">How to style :</span><br>
+                    <video class="video-size" id="about-video-play"  src="{{ product.metafields.custom.how_to_style}}}" controls autoplay frameborder="0" allowfullscreen></video>
+                  </div>
+
+                  <div class="fabric meta-feat-line">
+                    <span class="feat_heading">Fabric :</span><br>{{ product.metafields.custom.fabric}}
+                  </div>
+              </div>
+            </div>
           {% endform %}
         </div>
 
@@ -288,6 +321,8 @@
     {{ product.media | where: 'media_type', 'model' | json }}
   </script>
 {% endunless %}
+
+
 
 
 
