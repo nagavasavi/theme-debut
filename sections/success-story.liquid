@@ -1,0 +1,62 @@
+{{ 'success-story.css' | asset_url | stylesheet_tag }}
+
+<section class="succss-story">
+    <div class="container">
+        <div class="success_wrp">
+            <h1 class="heading">{{ section.settings.heading }}</h1>
+            <h3 class="sub-heading">{{ section.settings.sub-heading }}</h1>
+            <div class="main_page">
+                {% for block in section.blocks %}
+                {% render 'success.liquid',  image_src: block.settings.success_image  , image_alt: 'Alt text', text_heading: block.settings.proj_name, text_subheading: block.settings.cat_name %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Success Block",
+"settings": [
+                {
+                "id": "heading",
+                "label": "Heading",
+                "type": "text"
+                },
+                {
+                "id": "sub-heading",
+                "label": "Sub Heading",
+                "type": "text"
+                }
+
+            ],
+"blocks": [
+{
+"name": "Success Block",
+"type": "cardType",
+"settings": [
+                {
+                    "type": "image_picker",
+                    "id": "success_image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "proj_name",
+                    "label": "Project name"
+                },
+                {
+                    "type": "text",
+                    "id": "cat_name",
+                    "label": "Category name"
+                }
+            ]
+}
+],
+"presets": [
+                {
+                "name": "Success Block"
+                }
+            ]
+}
+{% endschema %}

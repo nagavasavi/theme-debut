@@ -1,0 +1,11 @@
+{{ 'success.css' | asset_url | stylesheet_tag }}
+
+<div class="image-text-wrp">
+    <div class="success_container">
+        <div class="image-text-snippet">
+            <img class="success-img" src="{{ image_src | img_url: 'master'}}" alt="website image" />
+            <h3 class="proj-name">{{text_heading}}</h3>
+            <p class="cat-name">{{ text_subheading }}</p>
+        </div>
+    </div>
+</div>
