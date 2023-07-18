@@ -225,6 +225,56 @@
           "learnBtn": "LEARN MORE",
           "learnBtnlink": "shopify:\/\/collections"
         }
+      },
+      "1ea989f5-f933-4f2b-9668-91ac39666a83": {
+        "type": "home-prod-by-benefit",
+        "blocks": {
+          "36dde191-c169-4476-a0ce-956811a227d3": {
+            "type": "cardType",
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/pexels-cottonbro-studio-4323324.png",
+              "coll-name": "REJUVENATION",
+              "imglink": "shopify:\/\/collections",
+              "namelink": ""
+            }
+          },
+          "69a11365-ce17-4591-8334-7934fcf0f072": {
+            "type": "cardType",
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/pexels-mart-production-8165406.png",
+              "coll-name": "IMMUNITY",
+              "imglink": "#",
+              "namelink": "#"
+            }
+          },
+          "3cf7eaa0-ebef-4b33-8b92-135c5f567d45": {
+            "type": "cardType",
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/pexels-liza-summer-6382633.png",
+              "coll-name": "CONGITIVE ENHNCEMENT",
+              "imglink": "#",
+              "namelink": "#"
+            }
+          },
+          "f3b2befb-3c3d-4921-b080-6b12afecada0": {
+            "type": "cardType",
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/pexels-mikhail-nilov-6740711.png",
+              "coll-name": "WELLNESS",
+              "imglink": "#",
+              "namelink": "#"
+            }
+          }
+        },
+        "block_order": [
+          "36dde191-c169-4476-a0ce-956811a227d3",
+          "69a11365-ce17-4591-8334-7934fcf0f072",
+          "3cf7eaa0-ebef-4b33-8b92-135c5f567d45",
+          "f3b2befb-3c3d-4921-b080-6b12afecada0"
+        ],
+        "settings": {
+          "heading": "Product by Benefit"
+        }
       }
     },
     "content_for_index": [
@@ -235,7 +285,8 @@
       "hero-2",
       "quotes",
       "image-bar",
-      "284d1c46-02ad-493a-b649-b23f5212f7e6"
+      "284d1c46-02ad-493a-b649-b23f5212f7e6",
+      "1ea989f5-f933-4f2b-9668-91ac39666a83"
     ]
   },
   "presets": {

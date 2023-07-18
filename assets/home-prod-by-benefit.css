@@ -1,0 +1,18 @@
+.collection-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+}
+
+.ben-heading{
+    color: #353B35;
+    font-family: Moranga;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    
+}
+
+.wrapper{
+    padding-top: 60px;
+}
