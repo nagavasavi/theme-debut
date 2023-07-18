@@ -1,0 +1,80 @@
+{{ 'home-powerful.css' | asset_url | stylesheet_tag }}
+
+<section class="home-powerful">
+    <!-- <div class="container"> -->
+        <div class="pow-wrapper">
+            <h1 class="pow-heading">{{ section.settings.pow-heading }}</h1>
+            <p class="power-desc">{{section.settings.pow-desc}}</p>
+            <a href="{{ section.settings.powBtnlink }}" class="pow-btn">{{ section.settings.powBtn }}</a>
+            <div class="power-list">
+                    {% for block in section.blocks %}
+                    {% if block.settings.power_icon != blank %}
+                    <div class="power-flex">
+                        <div class="power-inner-flex">
+                            <div class="pow-icon">
+                                <img class="power_icon" src="{{block.settings.power_icon| image_url}}" alt="Number" />
+                            </div>
+                            <div class="power-content">
+                                <p class="power-title">{{block.settings.power-title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+    <!-- </div> -->
+</section>
+
+
+{% schema %}
+{
+"name": "Powerful Block",
+"settings": [
+                {
+                    "id": "pow-heading",
+                    "label": "Heading",
+                    "type": "text"
+                },
+                {
+                    "id": "pow-desc",
+                    "label": "Sub Heading",
+                    "type": "text"
+                },
+                {
+                    "type":"text",
+                    "label":"Button text",
+                    "id":"powBtn"
+                },
+                {
+                    "type":"url",
+                    "label":"link",
+                    "id":"powBtnlink"
+                }
+
+            ],
+            "blocks": [
+                        {
+                        "name": "Icon Block",
+                        "type": "cardType",
+                        "settings": [
+                                        {
+                                            "type": "image_picker",
+                                            "id": "power_icon",
+                                            "label": "Icon"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "id": "power-title",
+                                            "label": "Timeline block description"
+                                        }
+                                     ]
+                        }
+                    ],
+"presets": [
+{
+"name": "Powerful Block"
+}
+]
+}
+{% endschema %}

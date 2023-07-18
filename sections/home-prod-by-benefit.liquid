@@ -1,74 +1,109 @@
 {{ 'home-prod-by-benefit.css' | asset_url | stylesheet_tag }}
 <section class="home-benefit">
-    <div class="container">
-        <div class="wrapper">
-            <h1 class="ben-heading">{{ section.settings.heading }}</h1>
-            <div class="collection-list">
-                
-                    {% for block in section.blocks %}
-                    {% if block.settings.coll_image != blank %}
-                    <div class="benefit-flex">
-                        <div class="benefit-inner-flex">
-                            <div class="coll-image-wrp">
-                                <img class="coll_image" src="{{block.settings.coll_image| image_url}}" alt="collection image" href="{{block.settings.imglink}}" />
-                            </div>
-                            <div class="coll-title-wrp">
-                                <h3 class="coll-name" href="{{block.settings.namelink}}">{{block.settings.coll-name}}</h3>
-                            </div>
-                        </div>
+    <!-- <div class="container"> -->
+    <div class="wrapper">
+        <h1 class="ben-heading">{{ section.settings.heading }}</h1>
+        <div class="home-collection-list swiper-container">
+            {% for block in section.blocks %}
+            {% if block.settings.coll_image != blank %}
+            <div class="benefit-flex swiper-wrapper">
+                <div class="benefit-inner-flex swiper-slide">
+                    <a class="collection-link" href="{{block.settings.imglink}}"></a>
+                    <div class="coll-image-wrp">
+                        <img class="coll_image" src="{{block.settings.coll_image| image_url}}" alt="collection image" />
                     </div>
-                    {% endif %}
-                    {% endfor %}
-                
+                    <div class="coll-title-wrp">
+                        <h3 class="coll-name">{{block.settings.coll-name}}</h3>
+                    </div>
+                </div>
             </div>
+            {% endif %}
+            {% endfor %}
         </div>
+        <div class="benefit__slider-arrow">
+            <div class="slider-arrow arrow-icon">
+              <div class="js-arrow-left arrow-icon">
+                {% render 'icon-left-arrow' %}
+              </div>
+              <div class="js-arrow-right arrow-icon">
+                {% render 'icon-right-arrow' %}
+              </div>
+            </div>
+          </div>
     </div>
+    <!-- </div> -->
 </section>
+  
+  <script>
+    var swiper = new Swiper('.home-collection-list', {
+        speed:1000,
+        slidesPerView: 4,
+        spaceBetween: 25,
+        // slidesPerGroup: 2,
+        navigation: {
+            nextEl: '.benefit__slider-arrow .slider-arrow .js-arrow-right',
+            prevEl: '.benefit__slider-arrow .slider-arrow .js-arrow-left',
+        },
+        breakpoints: {
+            1920: {
+                // slidesPerView: 3,
+                // spaceBetween: 30
+                slidesPerView: 2,
+                spaceBetween: 25,
+                slidesPerGroup: 2
 
+            },
+            1028: {
+                slidesPerView: 1.8,
+                // spaceBetween: 30
+            },
+            767: {
+                slidesPerView: 1.2,
+                // slidesPerGroup: 1,
+                // spaceBetween: 10
+            }
+        }
+    });
+  </script>
 
 {% schema %}
 {
 "name": "Product Benefit Block",
 "settings": [
-                {
-                "id": "heading",
-                "label": "Heading",
-                "type": "text"
-                }
+{
+"id": "heading",
+"label": "Heading",
+"type": "text"
+}
 
-            ],
-                "blocks": [
-                            {
-                                "name": "Collection Block",
-                                "type": "cardType",
-                                "settings": [
-                                                {
-                                                "type": "image_picker",
-                                                "id": "coll_image",
-                                                "label": "Number-Icon"
-                                                },
-                                                {
-                                                "type": "text",
-                                                "id": "coll-name",
-                                                "label": "Timeline block Heading"
-                                                },
-                                                {
-                                                    "type":"url",
-                                                    "label":" Image link",
-                                                    "id":"imglink"
-                                                },
-                                                {
-                                                    "type":"url",
-                                                    "label":"Text link",
-                                                    "id":"namelink"
-                                                }
-                                            ]
-                            }
-                         ],
-                "presets": [
-                            {
-                            "name": "Product Benefit Block"
-                            }
-                        ]
+],
+"blocks": [
+{
+"name": "Collection Block",
+"type": "cardType",
+"settings": [
+{
+"type": "image_picker",
+"id": "coll_image",
+"label": "Number-Icon"
+},
+{
+"type": "text",
+"id": "coll-name",
+"label": "Timeline block Heading"
+},
+{
+"type":"url",
+"label":" Image link",
+"id":"imglink"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Product Benefit Block"
+}
+]
 }
 {% endschema %}

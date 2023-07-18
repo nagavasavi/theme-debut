@@ -234,8 +234,7 @@
             "settings": {
               "coll_image": "shopify:\/\/shop_images\/pexels-cottonbro-studio-4323324.png",
               "coll-name": "REJUVENATION",
-              "imglink": "shopify:\/\/collections",
-              "namelink": ""
+              "imglink": "shopify:\/\/collections"
             }
           },
           "69a11365-ce17-4591-8334-7934fcf0f072": {
@@ -243,8 +242,7 @@
             "settings": {
               "coll_image": "shopify:\/\/shop_images\/pexels-mart-production-8165406.png",
               "coll-name": "IMMUNITY",
-              "imglink": "#",
-              "namelink": "#"
+              "imglink": "#"
             }
           },
           "3cf7eaa0-ebef-4b33-8b92-135c5f567d45": {
@@ -252,8 +250,7 @@
             "settings": {
               "coll_image": "shopify:\/\/shop_images\/pexels-liza-summer-6382633.png",
               "coll-name": "CONGITIVE ENHNCEMENT",
-              "imglink": "#",
-              "namelink": "#"
+              "imglink": "#"
             }
           },
           "f3b2befb-3c3d-4921-b080-6b12afecada0": {
@@ -261,8 +258,25 @@
             "settings": {
               "coll_image": "shopify:\/\/shop_images\/pexels-mikhail-nilov-6740711.png",
               "coll-name": "WELLNESS",
-              "imglink": "#",
-              "namelink": "#"
+              "imglink": "#"
+            }
+          },
+          "ecf5118f-5ae7-45fc-a3d9-5a9f3d3c3fcf": {
+            "type": "cardType",
+            "disabled": true,
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/Mask_group_17.png",
+              "coll-name": "REJUVENATION",
+              "imglink": "shopify:\/\/collections"
+            }
+          },
+          "bbd4aab9-303c-43f6-ada3-25918bd4e86f": {
+            "type": "cardType",
+            "disabled": true,
+            "settings": {
+              "coll_image": "shopify:\/\/shop_images\/pexels-mart-production-8165406.png",
+              "coll-name": "IMMUNITY",
+              "imglink": "shopify:\/\/collections"
             }
           }
         },
@@ -270,10 +284,57 @@
           "36dde191-c169-4476-a0ce-956811a227d3",
           "69a11365-ce17-4591-8334-7934fcf0f072",
           "3cf7eaa0-ebef-4b33-8b92-135c5f567d45",
-          "f3b2befb-3c3d-4921-b080-6b12afecada0"
+          "f3b2befb-3c3d-4921-b080-6b12afecada0",
+          "ecf5118f-5ae7-45fc-a3d9-5a9f3d3c3fcf",
+          "bbd4aab9-303c-43f6-ada3-25918bd4e86f"
         ],
         "settings": {
           "heading": "Product by Benefit"
+        }
+      },
+      "c20a2cfc-4446-4a41-bf9c-c5379789e67a": {
+        "type": "home-powerful",
+        "blocks": {
+          "7fab85eb-0ca0-4913-8125-f0e051c9bc53": {
+            "type": "cardType",
+            "settings": {
+              "power_icon": "shopify:\/\/shop_images\/Group_67.png",
+              "power-title": "100% Plant-Based"
+            }
+          },
+          "b5bbb7e4-62ef-462e-a953-a707084b8703": {
+            "type": "cardType",
+            "settings": {
+              "power_icon": "shopify:\/\/shop_images\/Group_69.png",
+              "power-title": "Action Synergized Formulas"
+            }
+          },
+          "aa88b2ec-ebbf-4f7a-ac45-a7d8e281e887": {
+            "type": "cardType",
+            "settings": {
+              "power_icon": "shopify:\/\/shop_images\/Group_67.png",
+              "power-title": "Traditional Chinese  Teapot Method"
+            }
+          },
+          "c5955ce7-31d8-4cd9-a397-86df8b6cc1e2": {
+            "type": "cardType",
+            "settings": {
+              "power_icon": "shopify:\/\/shop_images\/Group_68.png",
+              "power-title": "Made in USA (Highest Qality Standards)"
+            }
+          }
+        },
+        "block_order": [
+          "7fab85eb-0ca0-4913-8125-f0e051c9bc53",
+          "b5bbb7e4-62ef-462e-a953-a707084b8703",
+          "aa88b2ec-ebbf-4f7a-ac45-a7d8e281e887",
+          "c5955ce7-31d8-4cd9-a397-86df8b6cc1e2"
+        ],
+        "settings": {
+          "pow-heading": "Powerful Botanicals for vibrant well-being.",
+          "pow-desc": "Our meticulously crafted extracts and natural ingredients are carefully formulated combining cutting edge science with time tested ancient wisdom  to provide maximum potency, ensuring superior effectiveness.",
+          "powBtn": "SHOP NOW",
+          "powBtnlink": "shopify:\/\/collections"
         }
       }
     },
@@ -286,7 +347,8 @@
       "quotes",
       "image-bar",
       "284d1c46-02ad-493a-b649-b23f5212f7e6",
-      "1ea989f5-f933-4f2b-9668-91ac39666a83"
+      "1ea989f5-f933-4f2b-9668-91ac39666a83",
+      "c20a2cfc-4446-4a41-bf9c-c5379789e67a"
     ]
   },
   "presets": {

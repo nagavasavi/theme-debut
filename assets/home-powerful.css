@@ -1,0 +1,88 @@
+.pow-wrapper{
+    background: #D7D9D2; 
+    padding: 6rem 12rem;
+    @media(max-width:767px){
+        padding: 2rem 1rem;
+    }
+}
+
+.pow-heading{
+    color: #353B35;
+    font-family: Moranga;
+    font-size: 40px;
+    font-weight: 700;
+    padding-bottom: 24px;
+    text-align: center;
+    line-height: 54px;
+    @media(max-width:767px){
+        font-size: 30px;
+        line-height:32px;
+    }
+}
+
+.power-desc{
+    color: #353B35;
+    text-align: center;
+    font-family: Circular Std;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    @media(max-width:767px){
+        font-size: 16px;
+        line-height:24px;
+    } 
+}
+
+.pow-btn{
+    background: #A7693C;
+    padding: 16px 52px;
+    color: #FFF;
+    font-family: Brice;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 23px; 
+    display: inline-flex;
+    position: relative;
+    left: 39%;
+    @media(max-width:767px){
+        font-size: 18px;
+        line-height:22px;
+        left:25%;
+    }
+}
+
+.power-list{
+    display: grid;
+    padding-top: 70px;
+    column-gap: 90px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media(max-width:767px){
+        column-gap: 70px;
+        row-gap: 100px;
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 25px;
+    }
+}
+
+.power-title{
+    color: #353B35;
+    text-align: center;
+    font-family: Brice;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    @media(max-width:767px){
+        font-size: 16px;
+        line-height:20px;
+    }
+}
+
+.power-content{
+    position: absolute;
+    top: 106%;
+    left: -11%;
+}
+
+.power-inner-flex{
+    position: relative;
+}
