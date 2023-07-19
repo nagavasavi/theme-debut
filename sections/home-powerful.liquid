@@ -5,7 +5,9 @@
         <div class="pow-wrapper">
             <h1 class="pow-heading">{{ section.settings.pow-heading }}</h1>
             <p class="power-desc">{{section.settings.pow-desc}}</p>
-            <a href="{{ section.settings.powBtnlink }}" class="pow-btn">{{ section.settings.powBtn }}</a>
+            <div class="powBtn-wrp">
+             <a href="{{ section.settings.powBtnlink }}" class="pow-btn">{{ section.settings.powBtn }}</a>
+            </div>
             <div class="power-list">
                     {% for block in section.blocks %}
                     {% if block.settings.power_icon != blank %}

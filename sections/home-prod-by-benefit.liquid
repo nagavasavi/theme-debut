@@ -1,13 +1,13 @@
 {{ 'home-prod-by-benefit.css' | asset_url | stylesheet_tag }}
 <section class="home-benefit">
     <!-- <div class="container"> -->
-    <div class="wrapper">
+    <div class="ben-wrapper">
         <h1 class="ben-heading">{{ section.settings.heading }}</h1>
-        <div class="home-collection-list swiper-container">
+        <div class="home-collection-list">
             {% for block in section.blocks %}
             {% if block.settings.coll_image != blank %}
-            <div class="benefit-flex swiper-wrapper">
-                <div class="benefit-inner-flex swiper-slide">
+            <div class="benefit-flex ">
+                <div class="benefit-inner-flex">
                     <a class="collection-link" href="{{block.settings.imglink}}"></a>
                     <div class="coll-image-wrp">
                         <img class="coll_image" src="{{block.settings.coll_image| image_url}}" alt="collection image" />
@@ -48,19 +48,18 @@
             1920: {
                 // slidesPerView: 3,
                 // spaceBetween: 30
-                slidesPerView: 2,
+                slidesPerView: 4,
                 spaceBetween: 25,
                 slidesPerGroup: 2
 
             },
             1028: {
-                slidesPerView: 1.8,
-                // spaceBetween: 30
+                slidesPerView: 3,
+                spaceBetween: 30,
             },
             767: {
-                slidesPerView: 1.2,
-                // slidesPerGroup: 1,
-                // spaceBetween: 10
+                slidesPerView: 3,
+                spaceBetween: 20,
             }
         }
     });

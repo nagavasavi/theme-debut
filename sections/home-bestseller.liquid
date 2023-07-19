@@ -1,0 +1,43 @@
+{{ 'home-bestseller.css' | asset_url | stylesheet_tag }}
+<section class="home-bestsell">
+    <div class="container">
+        <div class="bestsel-wrapper">
+            <h1 class="bestsel-heading">{{ section.settings.heading }}</h1>
+            <div class="home-nestsell-list">
+         
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Product Benefit Block",
+"settings": [
+                {
+                    "id": "heading",
+                    "label": "Heading",
+                    "type": "text"
+                }
+
+            ],
+"blocks": [
+            {
+            "name": "Collection Block",
+            "type": "cardType",
+            "settings": [
+                            {
+                                "type": "image_picker",
+                                "id": "coll_image",
+                                "label": "Number-Icon"
+                            }
+                        ]
+             }
+            ],
+"presets": [
+            {
+               "name": "Product Benefit Block"
+            }
+        ]
+}
+{% endschema %}
