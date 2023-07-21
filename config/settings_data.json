@@ -215,6 +215,7 @@
       },
       "284d1c46-02ad-493a-b649-b23f5212f7e6": {
         "type": "home-banner",
+        "disabled": true,
         "settings": {
           "banner_image": "shopify:\/\/shop_images\/pexels-any-lane-5945950_1.png",
           "banner_image_mob": "shopify:\/\/shop_images\/pexels-any-lane-5945950_1_1.png",
@@ -228,6 +229,7 @@
       },
       "1ea989f5-f933-4f2b-9668-91ac39666a83": {
         "type": "home-prod-by-benefit",
+        "disabled": true,
         "blocks": {
           "36dde191-c169-4476-a0ce-956811a227d3": {
             "type": "cardType",
@@ -294,6 +296,7 @@
       },
       "c20a2cfc-4446-4a41-bf9c-c5379789e67a": {
         "type": "home-powerful",
+        "disabled": true,
         "blocks": {
           "7fab85eb-0ca0-4913-8125-f0e051c9bc53": {
             "type": "cardType",
@@ -336,6 +339,12 @@
           "powBtn": "SHOP NOW",
           "powBtnlink": "shopify:\/\/collections"
         }
+      },
+      "d5fcfc11-2451-4a9c-9a2e-a65e31f9dd96": {
+        "type": "prod-detail",
+        "settings": {
+          "prod-det": "shopify:\/\/products\/super-dozen-chicken-eggs"
+        }
       }
     },
     "content_for_index": [
@@ -348,7 +357,8 @@
       "image-bar",
       "284d1c46-02ad-493a-b649-b23f5212f7e6",
       "1ea989f5-f933-4f2b-9668-91ac39666a83",
-      "c20a2cfc-4446-4a41-bf9c-c5379789e67a"
+      "c20a2cfc-4446-4a41-bf9c-c5379789e67a",
+      "d5fcfc11-2451-4a9c-9a2e-a65e31f9dd96"
     ]
   },
   "presets": {
