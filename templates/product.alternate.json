@@ -2,11 +2,18 @@
   "sections": {
     "main": {
       "type": "product-template",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "3b8402d8-41f3-4dd6-9b25-d47d9970995e": {
+      "type": "product-template",
       "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "3b8402d8-41f3-4dd6-9b25-d47d9970995e"
   ]
 }
