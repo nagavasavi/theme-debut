@@ -1,0 +1,57 @@
+<h2>{{ product.title }}</h2>
+
+<img src="{{ product.featured_image | img_url: '300px' }}" />
+
+{% if section.settings.show_reviews %}
+<h4>⭐︎⭐︎⭐︎⭐︎⭐︎</h4>
+{% endif %}
+
+<h4>{{ section.settings.tax_notice }}</h4>
+
+<h3>{{ section.settings.number-prod }}</h3>
+
+<h3>{{ section.settings.logo_alignment }}</h3>
+
+ {% schema %}
+  {
+    "name": "cutomisable options",
+    "settings": [{
+      "id":"tax-notice",
+      "type":"text",
+      "label":"tax notice"
+    },
+    {
+      "id":"show_reviews",
+      "type":"checkbox",
+      "label":"show reviews"
+    },
+   {
+      "id":"number-prod",
+      "type":"number",
+      "label":"number"
+    },
+    {
+      "id":"show-color",
+      "type":"checkbox",
+      "label":"color selection"
+    },
+    {
+      "type": "radio",
+      "id": "logo_aligment",
+      "label": "Logo alignment",
+      "options": [
+       {
+         "value": "left",
+         "label": "Left"
+       },
+       {
+         "value": "centered",
+         "label": "Centered"
+       }
+       ],
+         "default": "left"
+       }
+    ]
+  }
+{% endschema %}
+
