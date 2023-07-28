@@ -8,12 +8,107 @@
     },
     "3b8402d8-41f3-4dd6-9b25-d47d9970995e": {
       "type": "product-template",
+      "blocks": {
+        "7b108ca1-cb4c-4b14-9779-4c4e8b6bc3b1": {
+          "type": "cardType",
+          "settings": {
+            "det_icon": "shopify:\/\/shop_images\/pp_002.png",
+            "det-desc": "1 Serving"
+          }
+        },
+        "3ad66bcf-d455-4b87-8465-4e4e4c722886": {
+          "type": "cardType",
+          "settings": {
+            "det_icon": "shopify:\/\/shop_images\/pp_004.png",
+            "det-desc": "30 Days supply"
+          }
+        },
+        "09820b07-114b-41e2-9d7c-7b7dab275d1b": {
+          "type": "cardType",
+          "settings": {
+            "det_icon": "shopify:\/\/shop_images\/pp_003.png",
+            "det-desc": "1oz\/ml"
+          }
+        },
+        "93369456-e07b-4527-8f56-209b4dd88bbf": {
+          "type": "cardType",
+          "settings": {
+            "det_icon": "shopify:\/\/shop_images\/pp_001.png",
+            "det-desc": "$50+ Free shipping"
+          }
+        }
+      },
+      "block_order": [
+        "7b108ca1-cb4c-4b14-9779-4c4e8b6bc3b1",
+        "3ad66bcf-d455-4b87-8465-4e4e4c722886",
+        "09820b07-114b-41e2-9d7c-7b7dab275d1b",
+        "93369456-e07b-4527-8f56-209b4dd88bbf"
+      ],
+      "settings": {
+      }
+    },
+    "435a8a7e-b4d2-45e9-a715-b71354f20cf6": {
+      "type": "save-with-bundle",
+      "settings": {
+        "heading": "SAVE MORE WITH BUNDLES",
+        "subtext": "upto 20%",
+        "product": "artisanal-ketchup"
+      }
+    },
+    "3753ad6f-6a93-4fff-9581-b86d785c2385": {
+      "type": "5icons-section",
+      "blocks": {
+        "0c0897b1-0115-488b-9793-d257b1483ff6": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/151.svg",
+            "sec_desc": "Youth \/ Recovery"
+          }
+        },
+        "262756eb-06c9-4f76-9ee6-f78d0228d8cd": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/152.svg",
+            "sec_desc": "Energy"
+          }
+        },
+        "159435f3-1a4f-42c1-8cc6-e03a9b0a3eac": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/153.svg",
+            "sec_desc": "Gut Health"
+          }
+        },
+        "dea05451-4e01-4f5b-beca-996d4a53a248": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/154.svg",
+            "sec_desc": "Immunity"
+          }
+        },
+        "94a5a518-4eae-4ff8-a1f0-027cf52f95d2": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/155.svg",
+            "sec_desc": "Youth"
+          }
+        }
+      },
+      "block_order": [
+        "0c0897b1-0115-488b-9793-d257b1483ff6",
+        "262756eb-06c9-4f76-9ee6-f78d0228d8cd",
+        "159435f3-1a4f-42c1-8cc6-e03a9b0a3eac",
+        "dea05451-4e01-4f5b-beca-996d4a53a248",
+        "94a5a518-4eae-4ff8-a1f0-027cf52f95d2"
+      ],
       "settings": {
       }
     }
   },
   "order": [
     "main",
-    "3b8402d8-41f3-4dd6-9b25-d47d9970995e"
+    "3b8402d8-41f3-4dd6-9b25-d47d9970995e",
+    "435a8a7e-b4d2-45e9-a715-b71354f20cf6",
+    "3753ad6f-6a93-4fff-9581-b86d785c2385"
   ]
 }

@@ -1,0 +1,49 @@
+<div class="prod-icon">
+    {% for block in section.blocks %}
+    <div class="5-icon-container">
+      <div class="5-icon-main">
+        <div class="5icon-text-wrap">
+          <div class="5-icon-wrp">
+            <img class="5det-icon" src="{{ block.settings.sec_icon | img_url : 'master' }}" alt="Icon" />
+          </div>
+          <div class="5det-text">
+            <p class="5det-desc">{{ block.settings.sec_desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+
+{% schema %}
+{
+"name": "5 Icons Block",
+"class": "section",
+"settings": [ ],
+"blocks": [
+            {
+                "name": " 5 Icon Block",
+                "type": "cardType",
+                "settings": [
+                                {
+                                    "type": "image_picker",
+                                    "id": "sec_icon",
+                                    "label": "Icon"
+                                },
+                                {
+                                    "type": "text",
+                                    "id": "sec_desc",
+                                    "label": "Text"
+                                }
+                            ]
+            }
+        ],
+"presets": [
+                {
+                "name": "5 Icon Block"
+                }
+            ]
+}
+{% endschema %}
