@@ -1,0 +1,62 @@
+{{ 'product-template.css' | asset_url | stylesheet_tag }}
+
+<section class="save-bundle-wrap">
+    <div class="save-bundle">
+        <div class="bundle-wrap">  
+                <div class="recc-text">
+                    <h3 class="heading">{{ section.settings.heading }}</h3>
+                    <p class="subtext">{{ section.settings.subtext }}</p>
+                </div> 
+        
+                {% assign upsellproduct = section.settings.product %}
+                <div class="upsell-media">
+                    <div class="upsell-image">
+                        <img class="up_image" src="{{ upsellproduct.featured_image | image_url }}" alt="product image" />
+                    </div>
+                    <div class="upsell-text">
+                        <div class="up-product-title">{{upsellproduct.title }}</div>
+                        {% form 'product', product, id:'AddToCartForm' %}
+                        <div class="cart-wrap">
+                            <button type="submit" class="btn btn-primary" data-add-to-cart>
+                              Add to Cart
+                            </button>
+                          </div>
+                        {% endform %}
+                    </div>
+               </div>
+               
+                
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Save with Bundle Block",
+    "tag": "section",
+    "class": "section",
+    "settings": [ 
+                   {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Heading"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtext",
+                        "label": "Sub text"
+                    },
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Product"
+                      }
+                ],
+"presets": [
+        {
+        "name": "Save with Bundle Block"
+        }
+    ]
+}
+{% endschema %}
+

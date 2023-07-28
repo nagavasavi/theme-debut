@@ -339,6 +339,55 @@
           "powBtn": "SHOP NOW",
           "powBtnlink": "shopify:\/\/collections"
         }
+      },
+      "product-template": {
+        "type": "product-template",
+        "blocks": {
+          "cce9ab8b-095f-41fd-9c46-21f115c23ef8": {
+            "type": "cardType",
+            "settings": {
+              "det_icon": "shopify:\/\/shop_images\/pp_002.png",
+              "det-desc": "1 Serving"
+            }
+          },
+          "87f92996-ad53-4165-b85e-4311e36197fa": {
+            "type": "cardType",
+            "settings": {
+              "det_icon": "shopify:\/\/shop_images\/pp_004.png",
+              "det-desc": "30 Day Supply"
+            }
+          },
+          "58ec228f-5954-4d1a-9514-3a34b2cb57c1": {
+            "type": "cardType",
+            "settings": {
+              "det_icon": "shopify:\/\/shop_images\/pp_003.png",
+              "det-desc": "1oz\/ml"
+            }
+          },
+          "de22a961-6504-47e3-841d-03858fb86162": {
+            "type": "cardType",
+            "settings": {
+              "det_icon": "shopify:\/\/shop_images\/pp_001.png",
+              "det-desc": "$50+ Free shipping"
+            }
+          }
+        },
+        "block_order": [
+          "cce9ab8b-095f-41fd-9c46-21f115c23ef8",
+          "87f92996-ad53-4165-b85e-4311e36197fa",
+          "58ec228f-5954-4d1a-9514-3a34b2cb57c1",
+          "de22a961-6504-47e3-841d-03858fb86162"
+        ],
+        "settings": {
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
       }
     },
     "content_for_index": [

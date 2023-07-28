@@ -120,6 +120,8 @@ label{
     display: flex;
     align-items: flex-end;
     column-gap: 30px;
+    border-bottom: 1px solid #A7693C;
+    padding-bottom: 20px;
 }
 
 .btn{
@@ -129,4 +131,68 @@ label{
 .product-quantity label{
     font-size: 18px;
     font-weight: 700;
+}
+
+.icon-text-wrap{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.prod-recc{
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 0;
+    row-gap: 20px;
+    border-bottom: 1px solid #A7693C;
+}
+
+/* product recommendation css */
+.bundle-wrap{
+    position: relative;
+    left: 53%;
+    padding-top: 20px;
+}
+
+.recc-text{
+    display: flex;
+    column-gap: 30px;
+    align-items: flex-start;
+}
+
+.subtext{
+    color: #FF4B4B; 
+    font-size: 14px;
+}
+
+.upsell-media{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.up_image{
+    border: 0;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.up-product-title{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    padding-bottom: 12px;
+}
+
+/* product recommendation css */
+
+/* 5 icons section css */
+.prod-icon{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 60px 0;
 }

@@ -287,6 +287,23 @@
       {{ product.description}}
     </div>
 
+    <div class="prod-recc">
+      {% for block in section.blocks %}
+      <div class="det-icon-container">
+        <div class="icon-text-main">
+          <div class="icon-text-wrap">
+            <div class="det-icon-wrp">
+              <img class="det-icon" src="{{ block.settings.det_icon | img_url : 'master' }}" alt="Icon" />
+            </div>
+            <div class="det-text">
+              <p class="det-desc">{{ block.settings.det-desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
     {% form 'product', product, id:'AddToCartForm' %}
     <input type="hidden" id="product-id" name="id" value="{{product.selected_or_first_available_variant}}">
     {% if product.variants.size > 1 %}
@@ -319,7 +336,7 @@
       <div class="cart-wrap">
         <button type="submit" class="btn btn-primary" data-add-to-cart>
           Add to Cart
-        </button>.
+        </button>
       </div>
     </div>
     <!-- </form> -->
@@ -408,6 +425,24 @@
 "name": "Product right Block",
 "class": "section",
 "settings": [ ],
+"blocks": [
+{
+"name": "Icon Block",
+"type": "cardType",
+"settings": [
+{
+"type": "image_picker",
+"id": "det_icon",
+"label": "Icon"
+},
+{
+"type": "text",
+"id": "det-desc",
+"label": "Text"
+}
+]
+}
+],
 "presets": [
 {
 "name": "Product right Block"
