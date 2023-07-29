@@ -196,3 +196,28 @@ label{
     text-align: center;
     padding: 60px 0;
 }
+
+/* 5 icons section css ends here */
+
+/* video section css starts here */
+.video-sec-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding-top: 30px;
+}
+
+.container{
+    padding: 0 40px;
+}
+
+.vid-heading{
+     
+        font-size: 44px; 
+        font-weight: 700;
+        text-align: center;
+}
+
+.prod-video{
+    padding: 60px 0;
+}
+/* video section css ends here */
