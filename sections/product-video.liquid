@@ -1,0 +1,53 @@
+<section class="prod-video">
+    <div class="container">
+        <div class="video-wrapper">
+            <h1 class="vid-heading">{{ section.settings.vid-heading }}</h1>
+            <div class="video-sec-main">
+                {% for block in section.blocks %}
+
+                <div class="video-flex">
+                    <div class="video-inner-flex">
+                        <div class="video-image">
+                            <img class="vid_image" src="{{block.settings.vid_image| image_url}}" alt="Number" />
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+"name": "Video Block",
+"settings": [
+{
+"id": "vid-heading",
+"label": "Heading",
+"type": "text"
+}
+
+],
+"blocks": [
+{
+"name": "Video Block",
+"type": "cardType",
+"settings": [
+{
+"type": "image_picker",
+"id": "vid_image",
+"label": "Video Image"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Video Block"
+}
+]
+}
+{% endschema %}
