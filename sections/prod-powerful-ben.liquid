@@ -1,0 +1,80 @@
+<div class="pow-ben-wrap-main">
+  <div class="pow-text-left">
+    <div class="pow-prod-only">
+      <h1 class="pow-heading">{{ section.settings.pow-heading }}</h1>
+      <p class="ben-prod-title">{{ product.title }}</p>
+    </div>
+    <div class="ben-icon-main">
+      <div class="pow-ben-wrap">
+        {% for block in section.blocks %}
+        <div class="pow-ben-container">
+          <div class="powimg-text-main">
+            <div class="powimg-text-wrap">
+              <div class="pow-icon-wrp">
+                <img class="pow-icon" src="{{ block.settings.pow_icon | img_url : 'master' }}" alt="Icon" />
+              </div>
+              <div class="pow-text">
+                <p class="pow-title">{{ block.settings.pow-title }}</p>
+                <p class="pow-desc">{{ block.settings.pow-desc }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="pow-image-right">
+    <img class="pow-img" src="{{ section.settings.pow_image | img_url : 'master' }}" alt="Image" />
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+"name": "Powerful Benefits Section",
+"class": "section",
+"settings": [
+{
+"id": "pow-heading",
+"label": "Heading",
+"type": "text"
+},
+{
+"id": "pow_image",
+"label": "Image",
+"type": "image_picker"
+}
+],
+"blocks": [
+{
+"name": "Benefits Block",
+"type": "cardType",
+"settings": [
+{
+"type": "image_picker",
+"id": "pow_icon",
+"label": "Icon"
+},
+{
+"type": "text",
+"id": "pow-title",
+"label": "Text"
+},
+{
+"type": "richtext",
+"id": "pow-desc",
+"label": "Description"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Powerful Benefits Section"
+}
+]
+}
+{% endschema %}
