@@ -1,0 +1,73 @@
+<section class="prod-recc-sec">
+    <div class="container">
+        <div class="recc-wrapper">
+            <div class="coll-view">
+                <h1 class="recc-heading">{{ section.settings.recc-heading }}</h1>
+                <a href="{{ section.settings.view-url}}" class="view-btn">{{ section.settings.view-heading }}</a>
+            </div>
+            <div class="coll-recc">
+                {% for block in section.blocks %}
+                <div class="collection-products">
+                    {% assign upsellcollection = collections[block.settings.recc-coll].products %}
+                    <!-- {{ recommendations.performed }} -->
+                    <div class="coll_wrap">
+                        {% for product in upsellcollection %}
+                        <div class="collection">
+                            <img class="coll_image" src="{{ product.featured_image | img_url :'master'}}"
+                                alt="product image" />
+                            <h3 class="coll_title">{{ product.title }}</h3>
+                            <p class="coll_price">{{ product.price | money }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+"name": "Reccomendation Block",
+"settings": [
+{
+"id": "recc-heading",
+"label": "Heading",
+"type": "text"
+},
+{
+"id": "view-heading",
+"label": "View all text",
+"type": "text"
+},
+{
+"id": "view-url",
+"label": "View all link",
+"type": "url"
+}
+
+],
+"blocks": [
+{
+"name": "Collection Block",
+"type": "cardType",
+"settings": [
+
+{
+"type": "collection",
+"id": "recc-coll",
+"label": "Choose collection"
+}
+
+]
+}
+],
+"presets": [
+{
+"name": "Product test recc Block"
+}
+]
+}
+{% endschema %}

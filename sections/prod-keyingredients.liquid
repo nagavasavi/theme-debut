@@ -1,0 +1,78 @@
+<div class="key-ing-wrap-main">
+    <div class="container">
+    <h1 class="key-heading">{{ section.settings.key-heading }}</h1>
+    <div class="key-ing-wrap">
+    {% for block in section.blocks %}
+    <div class="key-ing-container">
+      <div class="keyimg-text-main">
+        <div class="keyimg-text-wrap">
+          <div class="key-icon-wrp"> 
+            <img class="key-icon" src="{{ block.settings.key_icon | img_url : 'master' }}" alt="Icon" />
+          </div>
+          <div class="key-text">
+            <p class="key-title">{{ block.settings.key-title }}</p>
+            <p class="key-desc">{{ block.settings.key-desc }}</p>
+            <a href="{{ section.settings.key-url}}" class="key-btn">{{ block.settings.key-btntext }}</a>  
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+  </div>
+
+
+
+
+{% schema %}
+{
+"name": "Key Ingredients Section",
+"class": "section",
+"settings": [ 
+    {
+        "id": "key-heading",
+        "label": "Heading",
+        "type": "text"
+    }
+],
+"blocks": [
+{
+"name": "Ingredient Block",
+"type": "cardType",
+"settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "key_icon",
+                        "label": "Icon"
+                    },
+                    {
+                        "type": "text",
+                        "id": "key-title",
+                        "label": "Text"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "key-desc",
+                        "label": "Description"
+                    },
+                    {
+                        "type": "text",
+                        "id": "key-btntext",
+                        "label": "Button Text"
+                    },
+                    {
+                        "type": "url",
+                        "id": "key-url",
+                        "label": "Button url"
+                    }
+                ]
+                }
+                ],
+"presets": [
+{
+"name": "Key Ingredients Section"
+}
+]
+}
+{% endschema %}

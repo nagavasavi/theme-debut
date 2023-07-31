@@ -55,6 +55,48 @@
         "product": "artisanal-ketchup"
       }
     },
+    "ca8adec7-4f3c-4b01-a7a2-4e335a058b1f": {
+      "type": "prod-benefits",
+      "blocks": {
+        "99df32e3-bb81-459e-8642-0a88e1ff5642": {
+          "type": "cardType",
+          "settings": {
+            "ben-title": "<p>THE PRODUCT<\/p>",
+            "ben-desc": "<p>{{ product.metafields.custom.the_product.value.the_product_description | metafield_tag }}<\/p>"
+          }
+        },
+        "874309f5-e5e9-48c0-be06-0da0886f622b": {
+          "type": "cardType",
+          "settings": {
+            "ben-title": "<p>INGREDIENTS<\/p>",
+            "ben-desc": "{{ product.metafields.custom.product_benefits_acc_new | metafield_tag }}"
+          }
+        },
+        "66b4173a-08e7-4d21-b47e-5421031c3a12": {
+          "type": "cardType",
+          "settings": {
+            "ben-title": "<p>HOW TO USE<\/p>",
+            "ben-desc": "<p>{{ product.metafields.custom.how_to_use.value.how_to_use_description | metafield_tag }}<\/p>"
+          }
+        },
+        "a2b31805-d36b-45fe-96f0-55ac4070c9fe": {
+          "type": "cardType",
+          "settings": {
+            "ben-title": "<p>SAFETY<\/p>",
+            "ben-desc": "<p>{{ product.metafields.custom.safety.value.safety_description | metafield_tag }}<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "99df32e3-bb81-459e-8642-0a88e1ff5642",
+        "874309f5-e5e9-48c0-be06-0da0886f622b",
+        "66b4173a-08e7-4d21-b47e-5421031c3a12",
+        "a2b31805-d36b-45fe-96f0-55ac4070c9fe"
+      ],
+      "settings": {
+        "ben-heading": ""
+      }
+    },
     "3753ad6f-6a93-4fff-9581-b86d785c2385": {
       "type": "5icons-section",
       "blocks": {
@@ -104,6 +146,39 @@
       "settings": {
       }
     },
+    "c3342f8c-2a00-42c4-8bee-da7e71fa0fdd": {
+      "type": "prod-keyingredients",
+      "blocks": {
+        "56ef3f4e-0902-4df3-8732-98769e7c03ac": {
+          "type": "cardType",
+          "repeater": "{{ product.metafields.custom.key_ingredients.value }}",
+          "settings": {
+            "key_icon": "{{ block.repeater.ingredient_image.value }}",
+            "key-title": "{{ block.repeater.ingredient_name.value }}",
+            "key-desc": "<p>{{ block.repeater.description | metafield_tag }}<\/p>",
+            "key-btntext": "Learn More",
+            "key-url": "{{ block.repeater.learn_more.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "56ef3f4e-0902-4df3-8732-98769e7c03ac"
+      ],
+      "settings": {
+        "key-heading": "Key Ingredients"
+      }
+    },
+    "b9b03208-a26a-4474-84bd-77cd817e9da0": {
+      "type": "feat-blog-test",
+      "settings": {
+        "title": "Blog posts",
+        "blog": "news",
+        "post_limit": 4,
+        "blog_show_author": false,
+        "blog_show_date": false,
+        "show_view_all": false
+      }
+    },
     "2e86e51d-c96e-4bd2-8c18-67ce4d18cf2a": {
       "type": "product-video",
       "blocks": {
@@ -141,13 +216,56 @@
       "settings": {
         "vid-heading": "Follow us @kimiawellness"
       }
+    },
+    "8c4aa44b-e047-461b-a175-0497fbde4d9c": {
+      "type": "prod-faq",
+      "blocks": {
+        "02a1ccbf-8508-41b2-98ac-190bab9b65f8": {
+          "type": "cardType",
+          "repeater": "{{ product.metafields.custom.faq.value }}",
+          "settings": {
+            "faq-title": "<p>{{ block.repeater.question.value }}<\/p>",
+            "faq-desc": "<p>{{ block.repeater.answer | metafield_tag }}<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "02a1ccbf-8508-41b2-98ac-190bab9b65f8"
+      ],
+      "settings": {
+        "faq-heading": "FAQ’S"
+      }
+    },
+    "068917e1-f32b-4686-a5b7-645c028f80ea": {
+      "type": "prod-recc-test",
+      "blocks": {
+        "12c7d5e7-7e35-4b79-b5b1-88ac0ba5b8a8": {
+          "type": "cardType",
+          "settings": {
+            "recc-coll": "frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "12c7d5e7-7e35-4b79-b5b1-88ac0ba5b8a8"
+      ],
+      "settings": {
+        "recc-heading": "Product you might like",
+        "view-heading": "view all",
+        "view-url": "shopify:\/\/collections"
+      }
     }
   },
   "order": [
     "main",
     "3b8402d8-41f3-4dd6-9b25-d47d9970995e",
     "435a8a7e-b4d2-45e9-a715-b71354f20cf6",
+    "ca8adec7-4f3c-4b01-a7a2-4e335a058b1f",
     "3753ad6f-6a93-4fff-9581-b86d785c2385",
-    "2e86e51d-c96e-4bd2-8c18-67ce4d18cf2a"
+    "c3342f8c-2a00-42c4-8bee-da7e71fa0fdd",
+    "b9b03208-a26a-4474-84bd-77cd817e9da0",
+    "2e86e51d-c96e-4bd2-8c18-67ce4d18cf2a",
+    "8c4aa44b-e047-461b-a175-0497fbde4d9c",
+    "068917e1-f32b-4686-a5b7-645c028f80ea"
   ]
 }
