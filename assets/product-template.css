@@ -194,7 +194,7 @@ label{
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    padding: 60px 0;
+    padding-bottom: 60px;
 }
 
 /* 5 icons section css ends here */
@@ -218,7 +218,7 @@ label{
 }
 
 .prod-video{
-    padding: 60px 0;
+    padding-bottom: 60px;
 }
 
 .prod-video .video-wrapper{
@@ -283,6 +283,9 @@ label{
   /* blog section css ends here*/
 
   /* ingredients section css starts here */
+  .key-ing-wrap-main{
+    padding-top: 60px;
+  }
 
   .key-title{
     font-size: 28px;
@@ -427,9 +430,6 @@ label{
     background: currentColor;
   }
   
-  /* .accordion button[aria-expanded='true'] {
-    color: #A7693C;
-  } */
   .accordion button[aria-expanded='true'] .icon::after {
     width: 0;
   }
@@ -509,4 +509,63 @@ label{
   .collection img{
       width: 100%;
       height: 100%;
+  }
+  /* prod recc section css ends here */
+
+  /* poerful benefits css section starts here */
+ 
+
+  .pow-ben-wrap{
+    display: grid;
+    padding: 3rem 0rem;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    column-gap: 30px;
+    row-gap: 50px;
+  }
+
+  .pow-prod-only{
+    background: #A7693C;
+    padding: 4rem 6rem;
+    color: white;
+  }
+
+  .ben-prod-title{
+    color: #fff;
+    font-size:25px ;
+  }
+
+  .pow-title{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    padding-top: 10px;
+  }
+
+  .pow-desc{
+    color: #D7D9D2;
+    font-size: 14px;
+
+  }
+
+  .ben-icon-main{
+    background: #363836;
+    padding: 3rem 5rem;
+  }
+
+  .pow-ben-wrap-main{
+    position: relative;
+  }
+
+  .pow-image-right{
+    transform: translate(-50%);
+    top: 5%;
+    position: absolute;
+    right: -4%;
+  }
+
+  .pow-image-right img{
+    max-width: 300px;
   }

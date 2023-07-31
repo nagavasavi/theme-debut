@@ -146,6 +146,27 @@
       "settings": {
       }
     },
+    "28526303-c17a-4c1b-ba00-566a197fc71b": {
+      "type": "prod-powerful-ben",
+      "blocks": {
+        "200ebb21-9d73-497e-9511-95d84df33a4b": {
+          "type": "cardType",
+          "repeater": "{{ product.metafields.custom.powerful_benefit.value }}",
+          "settings": {
+            "pow_icon": "{{ block.repeater.power_ben_image.value }}",
+            "pow-title": "{{ block.repeater.powerful_ben_title | metafield_text }}",
+            "pow-desc": "{{ block.repeater.powerful_ben_desc | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "200ebb21-9d73-497e-9511-95d84df33a4b"
+      ],
+      "settings": {
+        "pow-heading": "Powerful Benefits",
+        "pow_image": "{{ product.metafields.custom.powerful_benefit_image.value.poerful_ben_image.value }}"
+      }
+    },
     "c3342f8c-2a00-42c4-8bee-da7e71fa0fdd": {
       "type": "prod-keyingredients",
       "blocks": {
@@ -262,6 +283,7 @@
     "435a8a7e-b4d2-45e9-a715-b71354f20cf6",
     "ca8adec7-4f3c-4b01-a7a2-4e335a058b1f",
     "3753ad6f-6a93-4fff-9581-b86d785c2385",
+    "28526303-c17a-4c1b-ba00-566a197fc71b",
     "c3342f8c-2a00-42c4-8bee-da7e71fa0fdd",
     "b9b03208-a26a-4474-84bd-77cd817e9da0",
     "2e86e51d-c96e-4bd2-8c18-67ce4d18cf2a",

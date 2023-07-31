@@ -15,7 +15,9 @@
                     </div>
                     <div class="upsell-text">
                         <div class="up-product-title">{{upsellproduct.title }}</div>
-                        {% form 'product', product, id:'AddToCartForm' %}
+                        {% form 'product', upsellproduct, id:'AddToCartForm' %}
+                        <input type="hidden" id="product-id" name="id" value="{{upsellproduct.selected_or_first_available_variant.id}}">
+                        <input type="hidden"  name="quantity" value="1">
                         <div class="cart-wrap">
                             <button type="submit" class="btn btn-primary" data-add-to-cart>
                               Add to Cart
@@ -23,13 +25,35 @@
                           </div>
                         {% endform %}
                     </div>
+                    
                </div>
                
                 
         </div>
     </div>
 </section>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
+      e.preventDefault();
+      var form = document.getElementById('AddToCartForm');
+      var formData = new FormData(form);
+      fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          window.location.href = '/cart';
+        })
+      .catch(function(error) {
+        console.error('Error:', error);
+      });
+    });
+  });
+</script>
 {% schema %}
 {
     "name": "Save with Bundle Block",
