@@ -1,0 +1,86 @@
+<div class="ben-main">
+    <div class="container">
+        {% if section.settings.ben-heading != blank  %}
+        <h1 class="faq-heading ben-heading">{{ section.settings.ben-heading }}</h1>
+        {% endif %}
+        <div class="faq-wrap ben-wrap">
+            {% for block in section.blocks %}
+            <div class="faq-container accordion">
+                <div class="faq-text-main accordion-item">
+                    <div class="ben-text">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title">{{ block.settings.ben-title }}</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="faq-desc">{{ block.settings.ben-desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    const items_ben = document.querySelectorAll('.ben-main .accordion button');
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+
+  for (i = 0; i < items_ben.length; i++) {
+    items_ben[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items_ben.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+
+
+
+</script>
+
+
+{% schema %}
+{
+"name": "Benefits Section",
+"class": "section",
+"settings": [
+{
+    "id": "ben-heading",
+    "label": "Heading",
+    "type": "text"
+    }
+],
+"blocks": [
+{
+"name": "Product Block",
+"type": "cardType",
+"settings": [
+
+{
+"type": "richtext",
+"id": "ben-title",
+"label": "Text"
+},
+{
+"type": "richtext",
+"id": "ben-desc",
+"label": "Description"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "benefits Section"
+}
+]
+}
+{% endschema %}

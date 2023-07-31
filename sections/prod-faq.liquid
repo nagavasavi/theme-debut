@@ -1,0 +1,83 @@
+<div class="faq-main">
+    <div class="container">
+        <h1 class="faq-heading">{{ section.settings.faq-heading }}</h1>
+        <div class="faq-wrap">
+            {% for block in section.blocks %}
+            <div class="faq-container accordion">
+                <div class="faq-text-main accordion-item">
+                    <div class="faq-text">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="faq-title accordion-title">{{ block.settings.faq-title }}</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="faq-desc">{{ block.settings.faq-desc }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    const items = document.querySelectorAll(' .faq-main .accordion button');
+
+function toggleAccordion() {
+  const itemToggle = this.getAttribute('aria-expanded');
+
+  for (i = 0; i < items.length; i++) {
+    items[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (itemToggle == 'false') {
+    this.setAttribute('aria-expanded', 'true');
+  }
+}
+
+items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+
+
+
+</script>
+
+
+{% schema %}
+{
+"name": "FAQ Section",
+"class": "section",
+"settings": [
+{
+"id": "faq-heading",
+"label": "Heading",
+"type": "text"
+}
+],
+"blocks": [
+{
+"name": "FAQ Block",
+"type": "cardType",
+"settings": [
+
+{
+"type": "richtext",
+"id": "faq-title",
+"label": "Text"
+},
+{
+"type": "richtext",
+"id": "faq-desc",
+"label": "Description"
+}
+]
+}
+],
+"presets": [
+{
+"name": "FAQ Section"
+}
+]
+}
+{% endschema %}
