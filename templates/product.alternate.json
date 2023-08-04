@@ -12,7 +12,7 @@
         "7b108ca1-cb4c-4b14-9779-4c4e8b6bc3b1": {
           "type": "cardType",
           "settings": {
-            "det_icon": "shopify:\/\/shop_images\/pp_002.png",
+            "det_icon": "shopify:\/\/shop_images\/pp_001.png",
             "det-desc": "1 Serving"
           }
         },
@@ -155,7 +155,7 @@
           "settings": {
             "pow_icon": "{{ block.repeater.power_ben_image.value }}",
             "pow-title": "{{ block.repeater.powerful_ben_title | metafield_text }}",
-            "pow-desc": "{{ block.repeater.powerful_ben_desc | metafield_tag }}"
+            "pow-desc": "<p>{{ block.repeater.powerful_ben_desc | metafield_tag }}<\/p>"
           }
         }
       },
