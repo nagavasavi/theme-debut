@@ -123,6 +123,7 @@
         },
         "dea05451-4e01-4f5b-beca-996d4a53a248": {
           "type": "cardType",
+          "disabled": true,
           "settings": {
             "sec_icon": "shopify:\/\/shop_images\/154.svg",
             "sec_desc": "Immunity"
@@ -130,6 +131,7 @@
         },
         "94a5a518-4eae-4ff8-a1f0-027cf52f95d2": {
           "type": "cardType",
+          "disabled": true,
           "settings": {
             "sec_icon": "shopify:\/\/shop_images\/155.svg",
             "sec_desc": "Youth"
@@ -137,6 +139,7 @@
         },
         "a42b3a76-0984-4117-b3aa-a29eda74ee35": {
           "type": "cardType",
+          "disabled": true,
           "settings": {
             "sec_icon": "shopify:\/\/shop_images\/153.svg",
             "sec_desc": "enery"
