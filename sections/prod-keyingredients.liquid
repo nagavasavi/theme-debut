@@ -1,27 +1,70 @@
 <div class="key-ing-wrap-main">
-    <div class="container">
+  <div class="container">
     <h1 class="key-heading">{{ section.settings.key-heading }}</h1>
-    <div class="key-ing-wrap">
-    {% for block in section.blocks %}
-    <div class="key-ing-container">
-      <div class="keyimg-text-main">
-        <div class="keyimg-text-wrap">
-          <div class="key-icon-wrp"> 
-            <img class="key-icon" src="{{ block.settings.key_icon | img_url : 'master' }}" alt="Icon" />
-          </div>
-          <div class="key-text">
-            <p class="key-title">{{ block.settings.key-title }}</p>
-            <p class="key-desc">{{ block.settings.key-desc }}</p>
-            <a href="{{ section.settings.key-url}}" class="key-btn">{{ block.settings.key-btntext }}</a>  
+    <div class="key-ing-wrap swiper-container">
+      <div class="swiper-wrapper key_image-wrap">
+        {% for block in section.blocks %}
+        <div class="key-ing-container swiper-slide">
+          <div class="keyimg-text-main">
+            <div class="keyimg-text-wrap">
+              <div class="key-icon-wrp">
+                <img class="key-icon" src="{{ block.settings.key_icon | img_url : 'master' }}" alt="Icon" />
+              </div>
+              <div class="key-text">
+                <p class="key-title">{{ block.settings.key-title }}</p>
+                <p class="key-desc">{{ block.settings.key-desc }}</p>
+                <a href="{{ section.settings.key-url}}" class="key-btn">{{ block.settings.key-btntext }}</a>
+              </div>
+            </div>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
-    {% endfor %}
-</div>
-</div>
+    <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="26" transform="matrix(-1 0 0 1 52 0)" fill="#A7693C"/>
+      <path d="M23 19L30 26L23 33" stroke="white" stroke-width="2"/>
+    </svg></div>
+    <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="26" fill="#A7693C"/>
+      <path d="M29 19L22 26L29 33" stroke="white" stroke-width="2"/>
+    </svg></div>
   </div>
+</div>
+</div>
 
+<script> 
+
+  var swiper_key = new Swiper('.key-ing-wrap', {
+    // speed: 1000,
+    slidesPerView: 4,
+    spaceBetween: 25,
+    navigation: {
+      // nextEl: '.key__slider-arrow .slider-arrow .js-arrow-right',
+      // prevEl: '.key__slider-arrow .slider-arrow .js-arrow-left',
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      1920: {
+        // slidesPerView: 3,
+        // spaceBetween: 30
+        slidesPerView: 4,
+        spaceBetween: 25,
+        slidesPerGroup: 2
+
+      },
+      1028: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+      767: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      }
+    }
+  });
+</script>
 
 
 
@@ -29,46 +72,46 @@
 {
 "name": "Key Ingredients Section",
 "class": "section",
-"settings": [ 
-    {
-        "id": "key-heading",
-        "label": "Heading",
-        "type": "text"
-    }
+"settings": [
+{
+"id": "key-heading",
+"label": "Heading",
+"type": "text"
+}
 ],
 "blocks": [
 {
 "name": "Ingredient Block",
 "type": "cardType",
 "settings": [
-                    {
-                        "type": "image_picker",
-                        "id": "key_icon",
-                        "label": "Icon"
-                    },
-                    {
-                        "type": "text",
-                        "id": "key-title",
-                        "label": "Text"
-                    },
-                    {
-                        "type": "richtext",
-                        "id": "key-desc",
-                        "label": "Description"
-                    },
-                    {
-                        "type": "text",
-                        "id": "key-btntext",
-                        "label": "Button Text"
-                    },
-                    {
-                        "type": "url",
-                        "id": "key-url",
-                        "label": "Button url"
-                    }
-                ]
-                }
-                ],
+{
+"type": "image_picker",
+"id": "key_icon",
+"label": "Icon"
+},
+{
+"type": "text",
+"id": "key-title",
+"label": "Text"
+},
+{
+"type": "richtext",
+"id": "key-desc",
+"label": "Description"
+},
+{
+"type": "text",
+"id": "key-btntext",
+"label": "Button Text"
+},
+{
+"type": "url",
+"id": "key-url",
+"label": "Button url"
+}
+]
+}
+],
 "presets": [
 {
 "name": "Key Ingredients Section"

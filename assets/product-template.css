@@ -6,32 +6,93 @@
 
 .product-info-right{
     width: 50%;
-    margin: 0 50px;
+    padding: 0 50px;
 }
 
-.product-media-left{
+.product-media-left {
     max-width: 50%;
     overflow: hidden;
 
+} 
+
+
+.option-swatch input{
+  display: none;
+
 }
 
- img{
-     /* width: 100%; */
- }
+.option-swatch.active{
+  background-color: #a7693c;
+    padding: 12px 15px;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+}
 
+.option-swatch{
+  cursor: pointer;
+  padding: 12px 15px;
+}
+
+.product-option fieldset{
+  border: none;
+}
+
+.quantity-selector-minus{
+  cursor: pointer;
+    accent-color: #A7693C;
+    border: 1px solid #A7693C;
+    text-align: center;
+    font-size: 16px;
+    width: 45px;
+    padding: 10px;
+    background: #fff;
+}
+
+.quantity-selector-plus{
+  cursor: pointer;
+    accent-color: #A7693C;
+    border: 1px solid #A7693C;
+    text-align: center;
+    font-size: 16px;
+    width: 45px;
+    padding: 10px;
+    background: #fff;
+}
+
+.quantity-selector-inputelector-{
+  accent-color: #A7693C;
+    border: 1px solid #A7693C;
+    text-align: center;
+    font-size: 16px;
+    width: 45px;
+    padding: 13px;
+}
  .swiper-container {
     width: 100%;
     /* max-width: 940px; */
     position: relative;
  }
 
- /* .swiper-container.slider {
-    height: 80vh;
-} */
+.slider-thumbnail{
+  padding-top: 20px;
+  overflow: hidden;
+}
 
-/* .slider-thumbnail {
-    height: 20vh;
-} */
+.swiper-button-next.swiper-button-disabled{
+  opacity: 1.35 !important;
+
+} .swiper-button-prev.swiper-button-disabled{
+  opacity: 1.35 !important;
+}
+
+.slider-thumbnail .swiper-button-next{
+  right: 0 !important;
+}
+
+.slider-thumbnail .swiper-button-prev{
+  left: 0 !important;
+}
 
 .slider-thumbnail  .swiper-wrapper .swiper-slide{
     /* width: 25%;
@@ -89,12 +150,13 @@
 
 .option-wrap{
     display: flex;
-    column-gap: 40px;
+    column-gap: 30px;
+    align-items: center;
 }
 
 fieldset{
     border: 1px solid #A7693C;
-    margin: 0 0 20px;
+    margin: 0;
     padding: 10px;
 }
 
@@ -204,6 +266,7 @@ label{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding-top: 30px;
+    column-gap: 10px;
 }
 
 .container{
@@ -224,6 +287,10 @@ label{
 .prod-video .video-wrapper{
     padding-bottom: 0;
 }
+
+.video-image img{
+  width: 100%;
+}
 /* video section css ends here */
 
 /* blog section css */
@@ -231,12 +298,12 @@ label{
 .blog-list {
     display: flex;
     flex-wrap: wrap; 
-    min-width: 1440px;
+    /* min-width: 1440px; */
   }
   
   .blog-grid {
-    flex-basis: calc(30% - -27px); 
-    margin: 10px; 
+    flex-basis: calc(31% - -28px); 
+    margin: 15px; 
     box-sizing: border-box; 
   }
 
@@ -255,11 +322,11 @@ label{
   }
 
   .blog-list :first-child{
-      flex-basis: 60%;
+      flex-basis: 62%;
   }
 
   .blog-list :last-child{
-    flex-basis: 60%;
+    flex-basis: 62%;
 }
 
   a {
@@ -284,12 +351,23 @@ label{
 
   /* ingredients section css starts here */
   .key-ing-wrap-main{
-    padding-top: 60px;
+    padding-top: 40px;
+    position: relative;
+  }
+
+  .keyimg-text-wrap{
+    padding: 20px 10px;
+  }
+
+  .key-heading{
+    padding-bottom: 22px;
+    padding-left: 14px;
   }
 
   .key-title{
     font-size: 28px;
     font-weight: 700;
+    padding: 20px 0;
   }
 
   .key-desc{
@@ -309,12 +387,14 @@ label{
    justify-content: space-evenly;
     text-align: center;
     align-items: center;
+    overflow: auto;
+    column-gap: 20px;
   }
 
   .key-ing-container{
     background: #D7D9D1;
-    width: 319px;
-    height: 613px;
+    /* width: 319px;
+    height: 613px; */
   }
 
   .key-icon{
@@ -326,6 +406,26 @@ label{
     padding-top: 40px;
   }
 
+  .swiper-button-next{
+    right: 22px;
+    left: auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  .swiper-button-prev{
+    left: 25px;
+    right: auto;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-prev:after{
+    display: none;
+  }
+
+  .swiper-button-next:after{
+    display: none;
+  }
   /* ingredients section css ends here */
 
   /* FAQ section css starts here */
@@ -356,7 +456,7 @@ label{
   .faq-main .container {
     margin: 0 auto;
     padding: 4rem;
-    width:59rem
+    width:64rem
   }
   
   .accordion .accordion-item {
@@ -398,11 +498,29 @@ label{
     padding: 1em 2em 1em 0;
   }
    */
+
+   /* .ben-text .ben-desc p{
+     padding:0 20px;
+   } */
+
+   .metafield-single_line_text_field{
+     padding: 0 20px;
+     padding-bottom: 10px;
+     width: 50%;
+   }
+   /* .ben-desc .metafield-multi_line_text_field{
+     padding: 0 20px;
+   } */
+
+   .metafield-single_line_text_field-array{
+     display: flex;
+     flex-wrap: wrap;
+   }
   .accordion button .icon {
     display: inline-block;
     position: absolute;
     top: 25px;
-    right: 0;
+    right: 20px;
     width: 22px;
     height: 22px;
     border: 1px solid;
@@ -435,7 +553,7 @@ label{
   }
   .accordion button[aria-expanded='true'] + .accordion-content {
     opacity: 1;
-    max-height: 9em;
+    max-height: 20em;
     transition: all 200ms linear;
     will-change: opacity, max-height;
   }
@@ -449,6 +567,8 @@ label{
   .accordion .accordion-content p {
     font-size: 1rem;
     font-weight: 300;
+    padding:0 20px;
+    width: 95%;
    
   }
   /* faq section css ends here */
@@ -461,8 +581,15 @@ label{
 
   .accordion-title{
     color: #000 !important;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
+    display: block;
+    width: 90%;
+    padding: 0 20px;
+}
+
+.accordion-content p{
+  margin: 0 0 10px !important;
 }
 
   .ben-wrap{
@@ -472,6 +599,11 @@ label{
   .accordion .ben-text button[aria-expanded='true'] {
     background: #A7693C;
     color: #fff;
+    padding:20px;
+  }
+
+  .accordion .ben-text button .icon[aria-expanded='true']{
+    right: 20px;
   }
 
   .accordion .ben-text button[aria-expanded='true'] .accordion-title p{
@@ -547,6 +679,7 @@ label{
   .pow-desc{
     color: #D7D9D2;
     font-size: 14px;
+    width: 70%;
 
   }
 
@@ -561,9 +694,9 @@ label{
 
   .pow-image-right{
     transform: translate(-50%);
-    top: 5%;
+    top: 7%;
     position: absolute;
-    right: -4%;
+    right: 1%;
   }
 
   .pow-image-right img{

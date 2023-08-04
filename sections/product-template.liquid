@@ -244,6 +244,7 @@
 {{ 'product-template.css' | asset_url | stylesheet_tag }}
 
 <div class="product-detail">
+
   <div class="product-media-left">
     <div class="swiper-container product-gallery slider">
       <div class="swiper-wrapper image-wrap">
@@ -253,9 +254,8 @@
         </div>
         {% endfor %}
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
     </div>
+
 
     <div class="swiper-container slider-thumbnail">
       <div class="swiper-wrapper">
@@ -265,10 +265,20 @@
         </div>
         {% endfor %}
       </div>
+      <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52"
+          fill="none">
+          <circle cx="26" cy="26" r="26" transform="matrix(-1 0 0 1 52 0)" fill="#A7693C" />
+          <path d="M23 19L30 26L23 33" stroke="white" stroke-width="2" />
+        </svg></div>
+      <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52"
+          fill="none">
+          <circle cx="26" cy="26" r="26" fill="#A7693C" />
+          <path d="M29 19L22 26L29 33" stroke="white" stroke-width="2" />
+        </svg></div>
     </div>
-
-
   </div>
+
+
 
 
   <div class="product-info-right">
@@ -313,33 +323,37 @@
         <legend>{{ option.name}}</legend>
         <div class="option-wrap">
           {% for value in option.values %}
-          <div>
-            <input {% if option.selected_value==value %} checked {% endif %} type="radio" name="{{option.name}}"
-              value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }} ">
-            <label for="{{ option.name | handlize }} - {{ value | handlize }}">
-              {{ value }}
-            </label>
+          <div class="option-swatch {% if forloop.index == 1 %} active {% endif %}" data-option="{{option.name}}"  id="prodSwatch">
+            <input  {% if option.selected_value==value %} checked {% endif %} type="radio" name="{{option.name}}"
+              value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }}" checked="checked"> 
+              <span class="color-swatch">{{ value }}</span>
           </div>
+          
           {% endfor %}
         </div>
       </fieldset>
       {% endfor %}
-    </div>
+    </div> 
     {% endif %}
-    <div class="cart-qty-flex">
+
+  
+    
+    
+    <div class="cart-qty-flex"> 
       <div class="product-quantity">
         <label for="quantity">Quantity</label>
-        <input id="quantity" name="quantity" value="1" class="product">
+        <button type="button" class="quantity-selector-minus">{% include 'minus.svg.liquid' %}</button>
+        <input id="quantity" name="quantity" value="1" class="quantity-selector-inputelector-">
+        <button type="button" class="quantity-selector-plus">{% include 'plus.svg.liquid' %}</button>
       </div>
-      <!-- <form id="AddToCartForm" action="/cart/add" method="post"> -->
-      <!-- <input type="hidden" id="product-id" name="id" value="{{product.selected_or_first_available_variant}}"> -->
+    
       <div class="cart-wrap">
         <button type="submit" class="btn btn-primary" data-add-to-cart>
           Add to Cart
         </button>
       </div>
     </div>
-    <!-- </form> -->
+  
     {% endform %}
   </div>
 </div>
@@ -401,9 +415,28 @@
       //   console.error('Error:', error);
       // });
     });
+      //For product variant swatches//
+  document.querySelectorAll('.color-swatch').forEach(element =>{
+      element.addEventListener('click',(ev) =>{
+          // console.log('event',ev)
+          const parent=ev.target.closest('.option-swatch');
+          document.querySelectorAll('.option-swatch.active')?.forEach((option) =>{
+            const classes=parent.dataset.option;
+            const optionParentclass = option.dataset.option;
+            if(classes==optionParentclass){
+              option?.classList.remove('active')
+            }
+         
+          })
+          parent.classList.add('active');
+          parent.querySelector('input').checked = true;
+          parent.querySelector('input').dispatchEvent(new Event('change'));
+       
+      })
+  })
   });
 
-
+  //swiper//
   var sliderThumbnail = new Swiper('.slider-thumbnail', {
     slidesPerView: 4,
     freeMode: true,
@@ -421,6 +454,21 @@
       swiper: sliderThumbnail
     }
   });
+
+  //For quantity selector inc and dec//
+  document.querySelector('.quantity-selector-plus').addEventListener('click', () => {
+    var currentVal = Number(document.querySelector('#quantity').value)
+    document.querySelector('#quantity').value = currentVal + 1;
+  })
+
+  document.querySelector('.quantity-selector-minus').addEventListener('click', () => {
+    var currentVal = Number(document.querySelector('#quantity').value)
+    if (currentVal > 1) {
+      document.querySelector('#quantity').value = currentVal - 1;
+    }
+
+  })
+
 </script>
 
 
