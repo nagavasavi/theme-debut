@@ -13,7 +13,7 @@
           "type": "cardType",
           "settings": {
             "det_icon": "shopify:\/\/shop_images\/pp_001.png",
-            "det-desc": "1 Serving"
+            "det-desc": "1 Serving hhhhhhhhhh"
           }
         },
         "3ad66bcf-d455-4b87-8465-4e4e4c722886": {
@@ -134,6 +134,13 @@
             "sec_icon": "shopify:\/\/shop_images\/155.svg",
             "sec_desc": "Youth"
           }
+        },
+        "a42b3a76-0984-4117-b3aa-a29eda74ee35": {
+          "type": "cardType",
+          "settings": {
+            "sec_icon": "shopify:\/\/shop_images\/153.svg",
+            "sec_desc": "enery"
+          }
         }
       },
       "block_order": [
@@ -141,7 +148,8 @@
         "262756eb-06c9-4f76-9ee6-f78d0228d8cd",
         "159435f3-1a4f-42c1-8cc6-e03a9b0a3eac",
         "dea05451-4e01-4f5b-beca-996d4a53a248",
-        "94a5a518-4eae-4ff8-a1f0-027cf52f95d2"
+        "94a5a518-4eae-4ff8-a1f0-027cf52f95d2",
+        "a42b3a76-0984-4117-b3aa-a29eda74ee35"
       ],
       "settings": {
       }
