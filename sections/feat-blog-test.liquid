@@ -11,8 +11,8 @@
 
 
                 {%- for article in blog.articles limit: section.settings.post_limit -%}
-                <li class="blog-grid">
-                    <a href="{{ article.url }}">
+                <li class="blog-grid img-wrapper">
+                    <a href="{{ article.url }}" class="inner-img">
                         {%- if article.image -%}
                         {{ article | img_url: '150x150', scale: 2 | img_tag: '' }}
                         {%- endif -%}
