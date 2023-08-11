@@ -243,6 +243,8 @@
         </div> -->
 {{ 'product-template.css' | asset_url | stylesheet_tag }}
 
+
+
 <div class="product-detail">
 
   <div class="product-media-left">
@@ -314,7 +316,7 @@
       {% endfor %}
     </div>
 
-    {% form 'product', product, id:'AddToCartForm' %}
+    <form id="addToCart" data-atc>
     <input type="hidden" id="product-id" name="id" value="{{product.selected_or_first_available_variant}}">
     {% if product.variants.size > 1 %}
     <div class="product-option">
@@ -323,9 +325,9 @@
         <legend>{{ option.name}}</legend>
         <div class="option-wrap">
           {% for value in option.values %}
-          <div class="option-swatch {% if forloop.index == 1 %} active {% endif %}" data-option="{{option.name}}"  id="prodSwatch">
+          <div class="option-swatch" data-option="{{option.name}}"  id="prodSwatch">
             <input  {% if option.selected_value==value %} checked {% endif %} type="radio" name="{{option.name}}"
-              value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }}" checked="checked"> 
+              value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }}"> 
               <span class="color-swatch">{{ value }}</span>
           </div>
           
@@ -348,21 +350,26 @@
       </div>
     
       <div class="cart-wrap">
-        <button type="submit" class="btn btn-primary" data-add-to-cart>
+        <button type="submit" class="btn btn-primary">
           Add to Cart
         </button>
       </div>
     </div>
   
-    {% endform %}
+   </form>
   </div>
 </div>
+
+
 
 <!-- <div class="prod-reccomendation-test">
   {% section 'product-recommendations' %}
 </div> -->
 
 <script>
+
+
+
   var product = {{ product | json }}
   // Function to match variants and update product form and price
   function matchVariantsAndUpdate() {
@@ -382,6 +389,7 @@
       }
       return pass;
     });
+   
     // Change Product form variant id
     document.querySelector('#product-id').value = matchedVariant.id;
     // Change price
@@ -396,29 +404,163 @@
     });
   });
   //Add to cart functionality
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
-      e.preventDefault();
-      var form = document.getElementById('AddToCartForm');
-      var formData = new FormData(form);
-      fetch('/cart/add.js', {
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
+  //     e.preventDefault();
+  //     var form = document.getElementById('AddToCartForm');
+  //     var formData = new FormData(form);
+  //     fetch('/cart/add.js', {
+  //       method: 'POST',
+  //       body: formData
+  //     })
+  //       .then(function (response) {
+  //         return response.json();
+  //       })
+  //       .then(function (data) {
+  //         window.location.href = '/cart';
+
+  //       })
+  //     .catch(function(error) {
+  //       console.error('Error:', error);
+  //     });
+  //   });
+
+
+  document.addEventListener('DOMContentLoaded', function (){
+    addCartDrawerListeners();
+    
+
+    function OpenCartDrawer(){
+    document.querySelector(".cart-drawer").classList.add("cart-drawer--active")
+    document.querySelector('body').classList.add('cart-drawer-open')
+    }
+
+    function closecartDrawer(){
+    document.querySelector(".cart-drawer").classList.remove("cart-drawer--active")
+    document.querySelector('body').classList.remove('cart-drawer-open')
+    }
+ 
+    document.querySelectorAll('[data-atc]').forEach((btn) => {
+      btn.addEventListener("submit", async(e) =>{
+        e.preventDefault();
+      const form = btn.closest('form');
+      const formData = new FormData(form);
+
+      //submit form with ajax
+      await fetch('/cart/add.js', {
         method: 'POST',
         body: formData
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          window.location.href = '/cart';
-        })
-      // .catch(function(error) {
-      //   console.error('Error:', error);
-      // });
+      });
+
+      //Get cart count
+      const res = await fetch("/cart.js");
+      const cart = await res.json();
+      updateCartItemCounts(cart.item_count);
+        //Update cart
+         await UpdateCartDrawer();
+
+      //Open cart drawer
+      OpenCartDrawer();
     });
+  });
+   
+
+  function updateCartItemCounts(count) {
+  document.querySelectorAll(".cart-count").forEach((el) => {
+    el.textContent = count;
+  });
+  }
+
+  async function UpdateCartDrawer(){
+    const res = await fetch("/?section_id=cart-drawer");
+    const text = await res.text();
+    const html = document.createElement("div");
+    html.innerHTML = text;
+
+    const newBox = html.querySelector(".cart-drawer").innerHTML;
+    document.querySelector(".cart-drawer").innerHTML = newBox;
+    addCartDrawerListeners();
+    removeCartItem();
+    window.cartEvents();
+  }
+
+
+  const updateCartItem = async (key, quantity) => {
+    const body = {
+         id: `${key}`,
+         quantity: quantity
+       }
+       const headers = {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          }
+        //Ajax update
+        const res = await fetch("/cart/change.js", {
+          method: "post",
+          headers: headers,
+          body: JSON.stringify(body)
+          });
+          const cart = await res.json();
+          updateCartItemCounts(cart.item_count);
+
+          //Update cart
+          UpdateCartDrawer();
+  }
+
+
+  function addCartDrawerListeners(){
+      //Update cart quantity
+    document.querySelectorAll(".cart-drawer-quantity-selector button").forEach((button) => {
+      button.addEventListener("click", async() => {
+       
+        // Get line item key  
+        const cartKeyEl = button.closest('[data-key]');
+        const cartItemKey = cartKeyEl.getAttribute("data-line-item-key")
+
+        //Get new quantity
+        const currentQuantity = Number(
+          button.parentElement.querySelector("input").value
+        );
+        
+        const isUp = button.classList.contains(
+          "cart-drawer-quantity-selector-plus"
+        );
+        const newQuantity = isUp ? currentQuantity + 1 : currentQuantity - 1;
+
+         await updateCartItem(cartItemKey, newQuantity);
+          })
+    
+          document.querySelector(".cart-drawer-box").addEventListener("click", (e) => {
+          e.stopPropagation();
+          });
+    })
+  }
+
+  // addCartDrawerListeners();
+
+
+
+  //Remove button
+  function removeCartItem(){
+      //Update cart quantity
+      document.querySelectorAll(".remove-btn-wrp button").forEach((button) => {
+      button.addEventListener("click", async() => {
+        // Get line item key 
+        const rootItemRem = button.parentElement.parentElement.parentElement.parentElement;
+        const key = rootItemRem.getAttribute("data-line-item-key")
+
+        await updateCartItem(key, 0);
+    
+          document.querySelector(".cart-drawer-box").addEventListener("click", (e) => {
+          e.stopPropagation();
+          });
+        });
+  })
+}
+
       //For product variant swatches//
-  document.querySelectorAll('.color-swatch').forEach(element =>{
+      document.querySelectorAll('.color-swatch').forEach(element =>{
       element.addEventListener('click',(ev) =>{
-          // console.log('event',ev)
           const parent=ev.target.closest('.option-swatch');
           document.querySelectorAll('.option-swatch.active')?.forEach((option) =>{
             const classes=parent.dataset.option;
@@ -433,7 +575,17 @@
           parent.querySelector('input').dispatchEvent(new Event('change'));
        
       })
-  })
+  });
+});
+
+//To set first option as default value when page is loaded
+document.querySelectorAll('.option-wrap').forEach(optionWrap => {
+    const firstRadioButton = optionWrap.querySelector('input[type="radio"]');
+    if (firstRadioButton) {
+      firstRadioButton.checked = true;
+      const firstRadioButtonParent = firstRadioButton.closest('.option-swatch');
+      firstRadioButtonParent.classList.add('active');
+    }
   });
 
   //swiper//
@@ -468,6 +620,12 @@
     }
 
   })
+
+
+
+
+
+ 
 
 </script>
 
