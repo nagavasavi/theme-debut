@@ -42,7 +42,6 @@
       },
       "feature-columns": {
         "type": "feature-columns",
-        "disabled": true,
         "blocks": {
           "feature-columns-0": {
             "type": "text_block",
@@ -80,6 +79,7 @@
           "feature-columns-1",
           "feature-columns-2"
         ],
+        "disabled": true,
         "settings": {
           "title": "",
           "align_text": "left"
@@ -113,7 +113,6 @@
       },
       "quotes": {
         "type": "quotes",
-        "disabled": true,
         "blocks": {
           "quotes-0": {
             "type": "quote",
@@ -142,13 +141,13 @@
           "quotes-1",
           "quotes-2"
         ],
+        "disabled": true,
         "settings": {
           "title": ""
         }
       },
       "image-bar": {
         "type": "image-bar",
-        "disabled": true,
         "blocks": {
           "image-bar-0": {
             "type": "image",
@@ -180,6 +179,7 @@
           "image-bar-1",
           "image-bar-2"
         ],
+        "disabled": true,
         "settings": {
           "section_height": "medium"
         }
@@ -229,7 +229,6 @@
       },
       "1ea989f5-f933-4f2b-9668-91ac39666a83": {
         "type": "home-prod-by-benefit",
-        "disabled": true,
         "blocks": {
           "36dde191-c169-4476-a0ce-956811a227d3": {
             "type": "cardType",
@@ -290,13 +289,13 @@
           "ecf5118f-5ae7-45fc-a3d9-5a9f3d3c3fcf",
           "bbd4aab9-303c-43f6-ada3-25918bd4e86f"
         ],
+        "disabled": true,
         "settings": {
           "heading": "Product by Benefit"
         }
       },
       "c20a2cfc-4446-4a41-bf9c-c5379789e67a": {
         "type": "home-powerful",
-        "disabled": true,
         "blocks": {
           "7fab85eb-0ca0-4913-8125-f0e051c9bc53": {
             "type": "cardType",
@@ -333,6 +332,7 @@
           "aa88b2ec-ebbf-4f7a-ac45-a7d8e281e887",
           "c5955ce7-31d8-4cd9-a397-86df8b6cc1e2"
         ],
+        "disabled": true,
         "settings": {
           "pow-heading": "Powerful Botanicals for vibrant well-being.",
           "pow-desc": "Our meticulously crafted extracts and natural ingredients are carefully formulated combining cutting edge science with time tested ancient wisdom  to provide maximum potency, ensuring superior effectiveness.",
@@ -658,12 +658,6 @@
         "product-template": {
           "type": "product-template",
           "settings": {
-            "show_quantity_selector": false,
-            "show_vendor": false,
-            "show_share_buttons": true,
-            "media_size": "medium",
-            "enable_image_zoom": true,
-            "enable_video_looping": false
           }
         },
         "collection-template": {

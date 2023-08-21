@@ -1,21 +1,21 @@
 {{ 'product-template.css' | asset_url | stylesheet_tag }}
 
 <section class="save-bundle-wrap">
-    <div class="save-bundle">
-        <div class="bundle-wrap">  
-                <div class="recc-text">
-                    <h3 class="heading">{{ section.settings.heading }}</h3>
-                    <p class="subtext">{{ section.settings.subtext }}</p>
-                </div> 
-        
-                {% assign upsellproduct = section.settings.product %}
-                <div class="upsell-media">
-                    <div class="upsell-image">
-                        <img class="up_image" src="{{ upsellproduct.featured_image | image_url }}" alt="product image" />
-                    </div>
-                    <div class="upsell-text">
-                        <div class="up-product-title">{{upsellproduct.title }}</div>
-                        {% form 'product', upsellproduct, id:'AddToCartForm' %}
+  <div class="save-bundle">
+    <div class="bundle-wrap">
+      <div class="recc-text">
+        <h3 class="heading">{{ section.settings.heading }}</h3>
+        <p class="subtext">{{ section.settings.subtext }}</p>
+      </div>
+
+      {% assign upsellproduct = section.settings.product %}
+      <div class="upsell-media">
+        <div class="upsell-image">
+          <img class="up_image" src="{{ upsellproduct.featured_image | image_url }}" alt="product image" />
+        </div>
+        <div class="upsell-text">
+          <div class="up-product-title">{{upsellproduct.title }}</div>
+          <!-- {% form 'product', upsellproduct, id:'AddToCartForm' %}
                         <input type="hidden" id="product-id" name="id" value="{{upsellproduct.selected_or_first_available_variant.id}}">
                         <input type="hidden"  name="quantity" value="1">
                         <div class="cart-wrap">
@@ -23,64 +23,97 @@
                               Add to Cart
                             </button>
                           </div>
-                        {% endform %}
-                    </div>
-                    
-               </div>
-               
-                
+                        {% endform %} -->
+          <form id="addToCart" data-atc>
+            <input type="hidden" id="product-id" name="id"
+              value="{{upsellproduct.selected_or_first_available_variant.id}}">
+            <input type="hidden" name="quantity" value="1">
+            <div class="cart-wrap">
+              <button type="submit" class="btn btn-primary">
+                Add to Cart
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 <script>
+ 
+    //To redirect it to cart page
+    // document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
+    //   e.preventDefault();
+    //   var form = document.getElementById('AddToCartForm');
+    //   var formData = new FormData(form);
+    //   fetch('/cart/add.js', {
+    //     method: 'POST',
+    //     body: formData
+    //   })
+    //     .then(function (response) {
+    //       return response.json();
+    //     })
+    //     .then(function (data) {
+    //       window.location.href = '/cart';
+    //     })
+    //   .catch(function(error) {
+    //     console.error('Error:', error);
+    //   });
+    // });
+
+    //To redirect to cart drawer
     document.addEventListener('DOMContentLoaded', function () {
-    document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
-      e.preventDefault();
-      var form = document.getElementById('AddToCartForm');
-      var formData = new FormData(form);
-      fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          window.location.href = '/cart';
-        })
-      .catch(function(error) {
-        console.error('Error:', error);
+    document.querySelectorAll('[data-atc]').forEach((btn) => {
+      btn.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const form = btn.closest('form');
+        const formData = new FormData(form);
+
+        //submit form with ajax
+        await fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData
+        });
+
+        //Get cart count
+        const res = await fetch("/cart.js");
+        const cart = await res.json();
+        updateCartItemCounts(cart.item_count);
+        //Update cart
+        await UpdateCartDrawer();
+
+        //Open cart drawer
+        OpenCartDrawer();
       });
     });
   });
 </script>
 {% schema %}
 {
-    "name": "Save with Bundle Block",
-    "tag": "section",
-    "class": "section",
-    "settings": [ 
-                   {
-                        "type": "text",
-                        "id": "heading",
-                        "label": "Heading"
-                    },
-                    {
-                        "type": "text",
-                        "id": "subtext",
-                        "label": "Sub text"
-                    },
-                    {
-                        "type": "product",
-                        "id": "product",
-                        "label": "Product"
-                      }
-                ],
+"name": "Save with Bundle Block",
+"tag": "section",
+"class": "section",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading"
+},
+{
+"type": "text",
+"id": "subtext",
+"label": "Sub text"
+},
+{
+"type": "product",
+"id": "product",
+"label": "Product"
+}
+],
 "presets": [
-        {
-        "name": "Save with Bundle Block"
-        }
-    ]
+{
+"name": "Save with Bundle Block"
+}
+]
 }
 {% endschema %}
-

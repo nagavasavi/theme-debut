@@ -13,10 +13,12 @@
                     <div class="coll_wrap">
                         {% for product in upsellcollection %}
                         <div class="collection">
+                            <a href="{{ product.url }}">
                             <img class="coll_image" src="{{ product.featured_image | img_url :'master'}}"
                                 alt="product image" />
                             <h3 class="coll_title">{{ product.title }}</h3>
                             <p class="coll_price">{{ product.price | money }}</p>
+                            </a>
                         </div>
                         {% endfor %}
                     </div>
