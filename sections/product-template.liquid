@@ -244,7 +244,7 @@
 {{ 'product-template.css' | asset_url | stylesheet_tag }}
 
 
-
+<div class="cart-loader" id="cart-loader-spin"></div>
 <div class="product-detail">
 
   <div class="product-media-left">
@@ -287,16 +287,23 @@
 
     <h1 class="prod-title">{{ product.title }}</h1>
     <div class="product-prices">
-      <!-- <div class="product-compare">
-              {{product.selected_or_first_available_variant.compare_at_price | money }}
-            </div> -->
       <div class="product-price">
         <p>{{ product.selected_or_first_available_variant.price | money }}</p>
       </div>
     </div>
 
     <div class="product-description">
-      {{ product.description}}
+      {% if product.description.size > 700 %}
+        <div class="product-description-short">
+        {{ product.description | truncate: 200, ". . " }}<a class="readmore" href="#">Show More</a>
+        </div>
+        <div class="product-description-full" style="display:none;">
+        {{ product.description }}
+        <br><a class="readless" href="#">Show Less</a>
+        </div>
+        {% else %}
+          {{ product.description }}
+      {% endif %}
     </div>
 
     <div class="prod-recc">
@@ -329,18 +336,13 @@
             <input  {% if option.selected_value==value %} checked {% endif %} type="radio" name="{{option.name}}"
               value="{{value}}" id="{{ option.name | handlize }} - {{ value | handlize }}"> 
               <span class="color-swatch">{{ value }}</span>
-          </div>
-          
+          </div>  
           {% endfor %}
         </div>
       </fieldset>
       {% endfor %}
     </div> 
     {% endif %}
-
-  
-    
-    
     <div class="cart-qty-flex"> 
       <div class="product-quantity">
         <label for="quantity">Quantity</label>
@@ -359,12 +361,6 @@
    </form>
   </div>
 </div>
-
-
-
-<!-- <div class="prod-reccomendation-test">
-  {% section 'product-recommendations' %}
-</div> -->
 
 <script>
 
@@ -395,7 +391,7 @@
     // Change price
     document.querySelector('.product-price').textContent = formatMoney(matchedVariant.price, "{{ shop.money_format}}");
   }
-  // Event listener when the page is loaded using DOMContentLoaded
+ 
   document.addEventListener('DOMContentLoaded', () => {
     matchVariantsAndUpdate();
     // Add event listeners to the radio inputs for future changes
@@ -403,29 +399,7 @@
       radio.addEventListener('change', matchVariantsAndUpdate);
     });
   });
-  //Add to cart functionality
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   document.querySelector('[data-add-to-cart]').addEventListener('click', function (e) {
-  //     e.preventDefault();
-  //     var form = document.getElementById('AddToCartForm');
-  //     var formData = new FormData(form);
-  //     fetch('/cart/add.js', {
-  //       method: 'POST',
-  //       body: formData
-  //     })
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         window.location.href = '/cart';
-
-  //       })
-  //     .catch(function(error) {
-  //       console.error('Error:', error);
-  //     });
-  //   });
-
-
+ 
   document.addEventListener('DOMContentLoaded', function (){
     addCartDrawerListeners();
     
@@ -536,10 +510,6 @@
     })
   }
 
-  // addCartDrawerListeners();
-
-
-
   //Remove button
   function removeCartItem(){
       //Update cart quantity
@@ -548,6 +518,7 @@
         // Get line item key 
         const rootItemRem = button.parentElement.parentElement.parentElement.parentElement;
         const key = rootItemRem.getAttribute("data-line-item-key")
+        
 
         await updateCartItem(key, 0);
     
@@ -622,6 +593,21 @@ document.querySelectorAll('.option-wrap').forEach(optionWrap => {
   })
 
 
+//Product descript - Read more
+document.querySelector('.readmore').addEventListener('click', (event) => {
+  event.preventDefault();
+  var descriptionFull = document.querySelector('.product-description-full');
+  descriptionFull.style.display = 'block';
+  var descriptionShort = document.querySelector('.product-description-short');
+  descriptionShort.style.display = 'none';
+});
+document.querySelector('.readless').addEventListener('click', (event) => {
+  event.preventDefault();
+  var descriptionFull = document.querySelector('.product-description-full');
+  descriptionFull.style.display = 'none';
+  var descriptionShort = document.querySelector('.product-description-short');
+  descriptionShort.style.display = 'block';
+});  
 
 
 

@@ -131,8 +131,13 @@
 }
 
 .product-description{
-    height: 50px;
+    height: auto;
     overflow: auto;
+}
+
+.readmore, .readless{
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .prod-title{
@@ -695,6 +700,10 @@ label{
 
   }
 
+  .pow-text .metafield-multi_line_text_field{
+    color: #fff;
+  }
+
   .ben-icon-main{
     background: #363836;
     padding: 3rem 5rem;
@@ -972,6 +981,7 @@ label{
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+    display: none;
   }
   
   @keyframes spin {

@@ -13,7 +13,7 @@
           "type": "cardType",
           "settings": {
             "det_icon": "shopify:\/\/shop_images\/pp_001.png",
-            "det-desc": "1 Serving hhhhhhhhhh"
+            "det-desc": "1 Serving"
           }
         },
         "3ad66bcf-d455-4b87-8465-4e4e4c722886": {
@@ -123,7 +123,6 @@
         },
         "dea05451-4e01-4f5b-beca-996d4a53a248": {
           "type": "cardType",
-          "disabled": true,
           "settings": {
             "sec_icon": "shopify:\/\/shop_images\/154.svg",
             "sec_desc": "Immunity"
@@ -131,7 +130,6 @@
         },
         "94a5a518-4eae-4ff8-a1f0-027cf52f95d2": {
           "type": "cardType",
-          "disabled": true,
           "settings": {
             "sec_icon": "shopify:\/\/shop_images\/155.svg",
             "sec_desc": "Youth"
