@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "9886b5dd-0899-437a-b500-f56e9e301fdc": {
+      "type": "coll-banner",
+      "settings": {
+        "collBanner": "shopify:\/\/shop_images\/Group_562.png"
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "settings": {
+        "layout": "grid",
+        "grid": 4,
+        "rows": 2,
+        "show_collection_image": true,
+        "show_vendor": false,
+        "sort_enable": true,
+        "tags_enable": true
+      }
+    }
+  },
+  "order": [
+    "9886b5dd-0899-437a-b500-f56e9e301fdc",
+    "main"
+  ]
+}

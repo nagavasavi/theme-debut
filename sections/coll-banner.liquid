@@ -1,0 +1,35 @@
+{{ 'coll-kimia.css' | asset_url | stylesheet_tag }}
+
+<div class="coll-banner">
+    <div class="banner-wrapper">
+        <div class="ban-img-txt-wrap">
+            <div class="img-wrap">
+                <img class="coll-img" src="{{ section.settings.collBanner | img_url: 'master'}}" alt="Banner" />
+            </div>
+            <div class="col-title">
+                <h3> {{ collection.title }} </h3>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+{% schema %}
+{
+"name": "Collection Banner",
+"settings": [
+{
+"type": "image_picker",
+"id": "collBanner",
+"label": "Banner"
+}
+],
+"presets": [
+{
+"name": "Collection Banner"
+}
+]
+}
+{% endschema %}
