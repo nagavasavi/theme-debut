@@ -1,0 +1,33 @@
+{{ 'coll-kimia.css' | asset_url | stylesheet_tag }}
+
+{%- if collection.description != blank -%}
+<p>{{ collection.description }}</p>
+{%- endif -%}
+
+<div class="coll-prod-card">
+    {% for product in collection.products %}
+    <div class="coll-detail">
+        <div class="product-card">
+            <a href="{{ product.url }}">
+                <img class="prod_image" src="{{ product.featured_image | img_url :'master'}}" alt="product image" />
+                <h3 class="prod_title">{{ product.title }}</h3>
+                <p class="prod_price">{{ product.price | money }}</p>
+            </a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+
+{% schema %}
+{
+"name": "Collection details",
+
+"presets": [
+{
+"name": "Collection details"
+}
+]
+}
+{% endschema %}

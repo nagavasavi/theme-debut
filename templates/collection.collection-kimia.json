@@ -6,8 +6,14 @@
         "collBanner": "shopify:\/\/shop_images\/Group_562.png"
       }
     },
+    "633eb569-08df-45dd-b9fe-8607f9e9875c": {
+      "type": "coll-body",
+      "settings": {
+      }
+    },
     "main": {
       "type": "collection-template",
+      "disabled": true,
       "settings": {
         "layout": "grid",
         "grid": 4,
@@ -21,6 +27,7 @@
   },
   "order": [
     "9886b5dd-0899-437a-b500-f56e9e301fdc",
+    "633eb569-08df-45dd-b9fe-8607f9e9875c",
     "main"
   ]
 }
